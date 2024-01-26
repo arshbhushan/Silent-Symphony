@@ -5,35 +5,36 @@ const router = express.Router();
 
 // Route to fingerspelling
 router.post('/', async (req, res) => {
-    try {
-        // Check for required fields
-        if (!req.body.Alphabet || !req.body.handShape || !req.body.videoUrl || !req.body.mnemonicTips) {
-            return res.status(400).send({
-                message: 'Please provide values for Alphabet, handShape, videoUrl, and mnemonicTips in the request body.',
-            });
-        }
+  try {
+      // Check for required fields
+      if (!req.body.Alphabet || !req.body.handShape || !req.body.videoUrl || !req.body.mnemonicTips) {
+          return res.status(400).send({
+              message: 'Please provide values for Alphabet, handShape, videoUrl, and mnemonicTips in the request body.',
+          });
+      }
 
-        const newfingSpell = {
-            Alphabet: req.body.Alphabet,
-            handshape: req.body.handShape,
-            videoUrl: req.body.videoUrl,
-            mnemonicTips: req.body.mnemonicTips,
-        };
+      const newfingSpell = {
+        Alphabet: req.body.Alphabet,
+        handshape: req.body.handShape,
+        videoUrl: req.body.videoUrl,
+        mnemonicTips: req.body.mnemonicTips,
+    };
+    const fingSpell = await FingSpell.create(newfingSpell);
+    
 
-        const fingSpell = await FingSpell.create(newfingSpell);
-
-        // Return only necessary information
-        return res.status(201).send({
-            Alphabet: fingSpell.Alphabet,
-            handshape: fingSpell.handshape,
-            videoUrl: fingSpell.videoUrl,
-            mnemonicTips: fingSpell.mnemonicTips,
-        });
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).send({ message: error.message });
-    }
+      // Return only necessary information
+      return res.status(201).send({
+          Alphabet: fingSpell.Alphabet,
+          handshape: fingSpell.handshape,
+          videoUrl: fingSpell.videoUrl,
+          mnemonicTips: fingSpell.mnemonicTips,
+      });
+  } catch (error) {
+      console.log(error.message);
+      res.status(500).send({ message: error.message });
+  }
 });
+
 
 // Route for getting all finger-spellings
 router.get('/', async (req, res) => {

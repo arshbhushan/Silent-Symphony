@@ -1,0 +1,40 @@
+/* styles.css */
+
+/* Reset some default styles for consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a global font family */
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Style the container of your React component */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style a heading */
+  .title {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  /* Style a button */
+  .button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  

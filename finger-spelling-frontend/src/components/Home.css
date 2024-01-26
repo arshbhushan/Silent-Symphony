@@ -1,0 +1,45 @@
+/* Home.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .alphabet-card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .handshape img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  video {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .mnemonic-tips {
+    margin-top: 20px;
+  }
+  
+  .mnemonic-tips h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .mnemonic-tips ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .mnemonic-tips li {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  

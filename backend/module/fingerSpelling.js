@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 
 const FingerSpelling = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId, // Define _id as ObjectId
-  Alphabet: String, // Removed "required: true"
+  Alphabet: { type: String, unique: true, required: true }, // Removed "required: true"
   handshape: {
-    imageUrl: { type: String, required: true },
-    description: { type: String, required: true },
+      imageUrl: { type: String, required: true },
+      description: { type: String, required: true },
   },
   videoUrl: { type: String, default: '' },
   mnemonicTips: { type: [String], default: [] },
@@ -13,5 +12,6 @@ const FingerSpelling = mongoose.Schema({
 {
   timestamps: true,
 });
+
 
 export const FingSpell = mongoose.model('FingerSpelling', FingerSpelling);
