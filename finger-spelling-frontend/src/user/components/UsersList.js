@@ -1,0 +1,25 @@
+import React from "react";
+import './UsersList.css';
+import UsersItem from "./Userstem";
+
+const UsersList=props=>{
+    if(props.items.length===0){
+        return(
+        <div className="center"><h2>No users found.</h2></div>
+        )
+    }
+    return(
+    <ul>
+        
+            {props.items.map(user=>(
+                 <UsersItem key={user.id} id={user.id}
+                 image={user.image}name={user.name}
+                 placeCount={user.learnings }
+                 />
+                 ))}
+        
+    </ul>
+    );
+};
+
+export default UsersList;

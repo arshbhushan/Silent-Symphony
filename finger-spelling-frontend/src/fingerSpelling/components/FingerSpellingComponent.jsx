@@ -1,11 +1,9 @@
-// Home.jsx
-
+// src/components/FingerSpellingComponent.jsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import './styles.css';
 import AlphabetCard from './AlphabetCard';
-import './Home.css';
-
-const Home = () => {
+import axios from 'axios';
+const FingerSpellingComponent = () => {
   const [fingerSpellings, setFingerSpellings] = useState([]);
 
   useEffect(() => {
@@ -28,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default FingerSpellingComponent;

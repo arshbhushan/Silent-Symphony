@@ -1,0 +1,55 @@
+/* AlphabetCard.css */
+
+.alphabet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: #070707;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.handshape {
+  margin-top: 20px;
+}
+
+.handshape img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.video-container {
+  margin-top: 20px;
+}
+
+.mnemonic-tips {
+  margin-top: 20px;
+}
+
+.mnemonic-tips h3 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.mnemonic-tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mnemonic-tips li {
+  margin-top: 5px;
+}

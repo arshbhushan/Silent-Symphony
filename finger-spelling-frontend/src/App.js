@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from 'react';
-import AppRouter from './components/AppRouter';
+import AppRouter from './fingerSpelling/components/AppRouter';
 
 const App = () => {
   return (
