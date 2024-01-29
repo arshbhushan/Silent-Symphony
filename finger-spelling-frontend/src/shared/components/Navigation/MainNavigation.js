@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import MainHeader from './MainHeader';
@@ -26,14 +26,9 @@ const MainNavigation = props => {
           <NavLinks />
         </nav>
       </SideDrawer>
-  
-
 
       <MainHeader>
-        <button
-          className="main-navigation__menu-btn"
-          onClick={openDrawerHandler}
-        >
+        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
           <span />
           <span />
           <span />
@@ -45,7 +40,7 @@ const MainNavigation = props => {
           <NavLinks />
         </nav>
       </MainHeader>
-      </React.Fragment>
+    </React.Fragment>
   );
 };
 
