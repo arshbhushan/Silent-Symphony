@@ -17,7 +17,9 @@ const NavLinks = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/learnings/new">ADD LEARNINGS</NavLink>
+        <NavLink to="/learnings/new">ADD LEARNINGS
+        
+        </NavLink>
       </li>
       <li className="dropdown">
         <button onClick={handleDropdownClick}>ALL TECHNIQUES</button>
