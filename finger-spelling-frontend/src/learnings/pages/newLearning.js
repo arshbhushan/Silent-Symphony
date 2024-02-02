@@ -1,10 +1,8 @@
 import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
-import {
-  VALIDATOR_REQUIRE
-} from '../../shared/util/validators';
-import './NewPlace.css';
+import {VALIDATOR_REQUIRE} from '../../shared/util/validators';
+import './newLearning.css';
 
 const NewLearning = () => {
   return (

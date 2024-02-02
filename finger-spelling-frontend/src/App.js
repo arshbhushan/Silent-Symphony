@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './fingerSpelling/components/styles.css';
 import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
-import NewLearning from './learnings/pages/NewLearning';
+import NewLearning from './learnings/pages/newLearning.js'
 
 import UserLearnings from './learnings/pages/userLearnings';
 
