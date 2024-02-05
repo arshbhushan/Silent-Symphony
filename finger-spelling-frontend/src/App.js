@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './fingerSpelling/components/styles.css';
 import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
-import NewLearning from './learnings/pages/newLearning.js'
+import NewLearning from './learnings/pages/NewLearning.js'
+import UpdateLearning from './learnings/pages/UpdateLearning.js';
 
 import UserLearnings from './learnings/pages/userLearnings';
 
@@ -28,6 +29,9 @@ const App = () => {
           </Route>
           <Route path="/learnings/new" exact>
             <NewLearning/>
+          </Route>
+          <Route path="/learnings/:learningId" exact>
+            <UpdateLearning/>
           </Route>
           {/* Add more routes as needed */}
           <Redirect to="/" />

@@ -5,7 +5,7 @@ import Button from '../../shared/components/FormElements/Button';
 import Modal from "../../shared/components/UIElements/Modal";
 
 
-const LearningItem=props=>{
+const LearningItem= props => {
     const [ShowVideo,setShowVideo]=useState(false);
 
     const openVideoHandler=()=>setShowVideo(true);
@@ -32,7 +32,7 @@ const LearningItem=props=>{
         </div>
         <div className="place-item__info">
             <h2>{props.title}</h2>
-            <h2>{props.mnemonicTips}</h2>
+            <h3>{props.mnemonicTips}</h3>
             <p>{props.description}</p>
         </div>
         <div className="place-item__actions">
@@ -40,7 +40,9 @@ const LearningItem=props=>{
             <Button onClick={openVideoHandler} to={`/learnings/${props.videoUrl}`}>View Video Tutorial</Button>
             {/* here I'll add the ML Model for users to try */}
            {/* <Button to={}>Try Now!</Button> */} 
-            <Button>Try Now!</Button>  
+           <Button to={`/learnings/${props.id}`}>EDIT</Button> 
+            <Button>Try Now!</Button>
+            <Button danger>DELETE</Button>  
         </div>
         </Card>
     </li>
