@@ -2,13 +2,14 @@ import React from "react";
 import './LearningList.css';
 import Card from "../../shared/components/UIElements/Card";
 import LearningItem from'./LearningItem';
+import Button from "../../shared/components/FormElements/Button";
 const LearningList=props=>{
 
     if(props.items.length===0){
         return( <div className="place-list center">
             <Card>
                 <h2>No learnings yet, Start learning?</h2>
-                <button> Start Learning</button>
+                <Button to="/learnings/new"> Start Learning</Button>
             </Card>
 
         </div>

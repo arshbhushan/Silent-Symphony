@@ -1,8 +1,9 @@
-import React from "react";
+import React , {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import { useForm } from "../../shared/hooks/form-hook";
+import Card from "../../shared/components/UIElements/Card";
 import { VALIDATOR_REQUIRE,VALIDATOR_MINLENGTH } from "../../shared/util/validators";
 
 
@@ -29,22 +30,50 @@ const Dummy_Learnings=[
 
 
 const UpdateLearning=()=>{
+    const [isLoading,setIsLoading]=useState(true);
     const LearningId=useParams().learningId;
 
+  
     const identifiedLearning=Dummy_Learnings.find(l=>l.id === LearningId);
-    const[formState,InputHandler]=useForm({
+     
+    const[formState,InputHandler,setFormData]=useForm({
         title:{
             value:identifiedLearning.title,
             placeholder:"Title",
-            isValid: true,
+            isValid: false,
         },
         description: {
         value: identifiedLearning.description,
-        isValid: true
+        isValid: false
 
         }
-    },true)
-     
+    },false); 
+
+
+    
+
+    useEffect(()=>{
+        if(identifiedLearning){
+            setFormData({
+                title:{
+                    value:identifiedLearning.title,
+                    placeholder:"Title",
+                    isValid: true,
+                },
+                description: {
+                value: identifiedLearning.description,
+                isValid: true
+        
+                }
+            },
+            true
+            ); 
+        }
+
+    setIsLoading(false);
+    },
+[setFormData,identifiedLearning]);
+
     const LearningUpdateSubmitHandler=event=>{
         event.preventDefault();
         console.log(formState.inputs);
@@ -52,9 +81,23 @@ const UpdateLearning=()=>{
 
     if(!identifiedLearning){
      return(
-     <div className="center"><h2>Could not find leaning</h2></div>   
+     <div className="center">
+        <Card>
+        <h2>Could not find leaning</h2>
+        </Card>   
+        </div>
+        
      );
-    } 
+    }
+    
+    if (isLoading) {
+        return (
+          <div className="center">
+            <h2>Loading...</h2>
+          </div>
+        );
+      }
+
     return <form className="place-form"  onSubmit={LearningUpdateSubmitHandler}>
       <Input id="title"
       element="input"
