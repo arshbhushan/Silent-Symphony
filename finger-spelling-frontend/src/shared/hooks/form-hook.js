@@ -6,6 +6,9 @@
         let formIsValid=true;
         //checking if all the inputs are valid
         for(const inputId in state.inputs){
+          if(!state.inputs[inputId]){
+            continue;
+          }
           if(inputId === action.inputId){
             formIsValid=formIsValid && action.isValid;
           }else{

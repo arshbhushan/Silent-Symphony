@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/auth-context';
 import './NavLinks.css';
 
 const NavLinks = () => {
+  const auth=useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownClick = () => {
@@ -16,11 +18,12 @@ const NavLinks = () => {
           ALL USERS
         </NavLink>
       </li>
-      <li>
+      {auth.isLoggedIn && (<li>
         <NavLink to="/learnings/new">ADD LEARNINGS
         
         </NavLink>
-      </li>
+      </li>)}
+
       <li className="dropdown">
         <button onClick={handleDropdownClick}>ALL TECHNIQUES</button>
         {isDropdownOpen && (
@@ -31,9 +34,15 @@ const NavLinks = () => {
           </div>
         )}
       </li>
-      <li>
+     {!auth.isLoggedIn && ( <li>
         <NavLink to="/auth">AUTHENTICATE</NavLink>
+      </li>)}
+      {auth.isLoggedIn &&(
+      <li>
+        <button onClick={auth.logout}>LOGOUT</button>
       </li>
+
+      )  }
     </ul>
   );
 };

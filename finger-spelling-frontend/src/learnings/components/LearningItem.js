@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {useState , useContext} from "react";
 import './LearningItem.css';
 import Card from "../../shared/components/UIElements/Card";
 import Button from '../../shared/components/FormElements/Button';
 import Modal from "../../shared/components/UIElements/Modal";
-
+import { AuthContext } from "../../shared/context/auth-context";
 
 const LearningItem= props => {
+    const auth=useContext(AuthContext);
     const [ShowVideo,setShowVideo]=useState(false);
     const [showConfirmModal,setShowConfirmModal]=useState(false);
     const openVideoHandler=()=>setShowVideo(true);
@@ -64,9 +65,10 @@ const LearningItem= props => {
             <Button onClick={openVideoHandler} to={`/learnings/${props.videoUrl}`}>View Video Tutorial</Button>
             {/* here I'll add the ML Model for users to try */}
            {/* <Button to={}>Try Now!</Button> */} 
-           <Button to={`/learnings/${props.id}`}>EDIT</Button> 
-            <Button>Try Now!</Button>
-            <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>  
+           {auth.isLoggedIn && (<Button to={`/learnings/${props.id}`}>EDIT</Button> ) }
+           {auth.isLoggedIn && (<Button>Try Now!</Button>)}
+           {auth.isLoggedIn && (<Button danger onClick={showDeleteWarningHandler}>DELETE</Button>) }
+             
         </div>
         </Card>
     </li>

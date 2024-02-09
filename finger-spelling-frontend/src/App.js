@@ -1,48 +1,64 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
 import './fingerSpelling/components/styles.css';
 import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
-import NewLearning from './learnings/pages/NewLearning.js'
+import NewLearning from './learnings/pages/NewLearning.js';
 import UpdateLearning from './learnings/pages/UpdateLearning.js';
 import Auth from './user/pages/Auth.js';
-
+import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
 
 const App = () => {
-  return (
-    <Router>
-      <MainNavigation />
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Users />
-          </Route>
-          <Route path="/:userId/learnings" exact>
-            <UserLearnings />
-          </Route>
-          {/* Uncomment the following route if needed */}
-          {/* <Route path="/finger-spelling" exact>
-            <FingerSpellingComponent />
-          </Route> */}
-          <Route path="/users" exact>
-            <Users />
-          </Route>
-          <Route path="/learnings/new" exact>
-            <NewLearning/>
-          </Route>
-          <Route path="/learnings/:learningId" exact>
-            <UpdateLearning/>
-          </Route>
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-          <Route path="/auth">
-            <Auth/>
-          </Route>
-          {/* Add more routes as needed */}
-          <Redirect to="/" />
-        </Switch>
-      </main>
-    </Router>
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
+
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+  let routes;
+  if (isLoggedIn) {
+    routes = (
+      <>
+        <Route path="/" element={<Users />} />
+        <Route path="/:userId/learnings" element={<UserLearnings />} />
+        <Route path="/learnings/new" element={<NewLearning />} />
+        <Route path="/learnings/:learningId" element={<UpdateLearning />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </>
+    );
+  } else {
+    routes = (
+      <>
+        <Route path="/" element={<Users />} />
+        <Route path="/:userId/learnings" element={<UserLearnings />} />
+        <Route path="/auth" element={<Auth />} />
+      </>
+    );
+  }
+
+  return (
+    <AuthContext.Provider value={{
+      isLoggedIn: isLoggedIn,
+      login: login,
+      logout: logout
+    }}>
+      <Router>
+        <MainNavigation />
+        <main>
+          <Routes>
+
+          {routes}
+
+
+          </Routes>
+        </main>
+      </Router>
+    </AuthContext.Provider>
   );
 };
 
