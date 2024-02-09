@@ -7,9 +7,20 @@ import Modal from "../../shared/components/UIElements/Modal";
 
 const LearningItem= props => {
     const [ShowVideo,setShowVideo]=useState(false);
-
+    const [showConfirmModal,setShowConfirmModal]=useState(false);
     const openVideoHandler=()=>setShowVideo(true);
     const closeVideoHandler=()=>setShowVideo(false);
+
+    const showDeleteWarningHandler=()=>{
+        setShowConfirmModal(true);
+    };
+    const cancleDeleteHandler=()=>{
+        setShowConfirmModal(false);
+    }
+    const confirmDeleteHandler=()=>{
+        setShowConfirmModal(false);
+        console.log('Deleting...');
+    }
 
     return (
     <>
@@ -25,7 +36,20 @@ const LearningItem= props => {
             <div className="map-container"></div>
             <h2>The Video</h2>
         </Modal>
-    <li className="place-item">
+        <Modal 
+        show={showConfirmModal}
+        onCancel={cancleDeleteHandler}
+        header="Are you sure? " 
+        footerClass="place-item__modal-actions" 
+        footer={
+            <>
+            <Button inverse onClick={cancleDeleteHandler}>CANCEL</Button>
+            <Button danger onClick={confirmDeleteHandler}>DELETE</Button>
+            </>
+        }>
+            <p>Are you sure you wish to delete this lesson?</p>
+        </Modal>
+    <li className="place-item" >
         <Card className="place-item__content">
         <div className="place-item__image">
             <img src={props.image} alt={props.title}/>
@@ -42,7 +66,7 @@ const LearningItem= props => {
            {/* <Button to={}>Try Now!</Button> */} 
            <Button to={`/learnings/${props.id}`}>EDIT</Button> 
             <Button>Try Now!</Button>
-            <Button danger>DELETE</Button>  
+            <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>  
         </div>
         </Card>
     </li>

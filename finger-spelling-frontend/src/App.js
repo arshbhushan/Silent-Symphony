@@ -5,6 +5,7 @@ import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import NewLearning from './learnings/pages/NewLearning.js'
 import UpdateLearning from './learnings/pages/UpdateLearning.js';
+import Auth from './user/pages/Auth.js';
 
 import UserLearnings from './learnings/pages/userLearnings';
 
@@ -32,6 +33,10 @@ const App = () => {
           </Route>
           <Route path="/learnings/:learningId" exact>
             <UpdateLearning/>
+          </Route>
+
+          <Route path="/auth">
+            <Auth/>
           </Route>
           {/* Add more routes as needed */}
           <Redirect to="/" />
