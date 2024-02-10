@@ -25,11 +25,14 @@ app.get('/', (req, res) => {
 app.use('/finger-spelling',router)
 app.use('/api/learnings',router)
 
-// app.use((req, res, next) => {
-//   const error = new HttpError('Could not find this route.', 404);
-//   console.log(error);
-//   throw error;
-// });
+app.use((error, req, res, next) => {
+  if (res.headersSent) {
+      return next(error);
+  }
+
+  res.status(error.code || 500).json({ message: error.message || `An unknown error occurred. ${error}` });
+});
+
 
 mongoose
   .connect(mongoDBURL)
