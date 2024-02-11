@@ -4,13 +4,14 @@ import { PORT, mongoDBURL } from "./config.js";
 // import { FingSpell } from "./module/fingerSpelling.js";
 //import fingerSpellingRoutes from './routes/fingerSpellingRoute.js';
 //import HttpError from "./module/http-error.js";
-//import bodyParser from "body-parser"; 
+import bodyParser from "body-parser"; 
 import cors from 'cors';
 import router from "./routes/learnings-routes.js";
 
 
 
 const app = express();
+
 
 // middleware for parsing request body
 app.use(express.json());
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
     console.log(req);
     return res.status(201).send('Home page for the specially-abled kids');
 });
-
+app.use(bodyParser.json());
 app.use('/finger-spelling',router)
 app.use('/api/learnings',router)
 

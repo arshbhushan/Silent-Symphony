@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.get('/:learningId', learningsControllers.getLearningById);
 router.get('/user/:uid', learningsControllers.getLearningByUserId);
+router.post('/',learningsControllers.createLearning);
 
 export default router;

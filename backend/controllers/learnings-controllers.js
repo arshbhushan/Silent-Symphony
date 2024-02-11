@@ -1,3 +1,7 @@
+import { v4 as uuid } from 'uuid';
+
+// Rest of your code...
+
 import {HttpError} from '../models/http-error.js';
 
 const DUMMY_LEARNINGS=[
@@ -49,6 +53,23 @@ export const getLearningByUserId=(req,res,next)=>{
   
   res.json({learningsByUser});
   
+  };
+
+  export const createLearning = (req, res, next) => {
+    const { Alphabet, handShape, videoUrl, mnemonicTips, creator } = req.body;
+    const createdLearning = {
+      id:uuid(),
+      Alphabet,
+      handShape: {
+        imageUrl: handShape.imageUrl,
+        description: handShape.description,
+      },
+      videoUrl,
+      mnemonicTips,
+      creator,
+    };
+    DUMMY_LEARNINGS.push(createdLearning);
+    res.status(201).json({learning:createdLearning}) ;
   };
 //   exports.getLearningById=getLearningById;  
 //   exports.getLearningByUserId=getLearningByUserId;
