@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-
+import { validationResult } from 'express-validator';
 // Rest of your code...
 
 import {HttpError} from '../models/http-error.js';
@@ -56,7 +56,14 @@ export const getLearningByUserId=(req,res,next)=>{
   };
 
   export const createLearning = (req, res, next) => {
-    const { Alphabet, handShape, videoUrl, mnemonicTips, creator } = req.body;
+    const errors=validationResult(req);
+    if(!errors.isEmpty()){
+      console.log(errors);
+      throw new HttpError('Invalid inputs passed, please check your data.',422);
+
+    }
+
+    const { Alphabet, handShape, videoUrl, mnemonicTip, creator } = req.body;
     const createdLearning = {
       id:uuid(),
       Alphabet,
@@ -65,14 +72,21 @@ export const getLearningByUserId=(req,res,next)=>{
         description: handShape.description,
       },
       videoUrl,
-      mnemonicTips,
+      mnemonicTip,
       creator,
     };
     DUMMY_LEARNINGS.push(createdLearning);
     res.status(201).json({learning:createdLearning}) ;
   };
   export const updateLearning = (req, res, next) => {
-    const { Alphabet, handShape, imageUrl, videoUrl, mnemonicTips } = req.body;
+    const errors=validationResult(req);
+    if(!errors.isEmpty()){
+      console.log(errors);
+      throw new HttpError('Invalid inputs passed, please check your data.',422);
+
+    }
+
+    const { Alphabet, handShape,  videoUrl, mnemonicTip } = req.body;
     const learningId = req.params.lid;
   
     // Assuming DUMMY_LEARNINGS is an array of learning objects
@@ -91,7 +105,7 @@ export const getLearningByUserId=(req,res,next)=>{
       description: handShape.description // Add other properties as needed
     };
     updateLearning.videoUrl = videoUrl;
-    updateLearning.mnemonicTip = mnemonicTips;// Fix property name here
+    updateLearning.mnemonicTip = mnemonicTip;// Fix property name here
   
     // Update the learning in the DUMMY_LEARNINGS array
     DUMMY_LEARNINGS[learningIndex] = updateLearning;
@@ -103,6 +117,9 @@ export const getLearningByUserId=(req,res,next)=>{
 
   export const  deleteLearning = (req, res, next) => {
     const  learningId = req.params.lid;
+    if(!DUMMY_LEARNINGS.find(l=>l.id === learningId)){
+        throw new HttpError(`Could not find a learning for that id. ${id}`,422);
+    }
     DUMMY_LEARNINGS=DUMMY_LEARNINGS.filter(l=> l.id !==learningId);
     res.status(200).json({ message: 'Deleted Learnings.' });
   };
