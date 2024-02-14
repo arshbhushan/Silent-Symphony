@@ -4,6 +4,7 @@ import { validationResult } from 'express-validator';
 import {HttpError} from '../models/http-error.js';
 //import { FingSpell } from '../models/fingerSpelling.js';
 import { learningsModule } from '../models/learnings.js';
+
 let DUMMY_LEARNINGS=[ 
 
     {
@@ -21,20 +22,28 @@ let DUMMY_LEARNINGS=[
 
 
 
-  export const getLearningsById=(req,res,next)=>{
+  export const getLearningsById=async (req,res,next)=>{
     const  learningId = req.params.learningId;
-    const learnings= DUMMY_LEARNINGS.filter(l=>{
-        return l.id=== learningId;
-    });
+    let learnings
+    try {
+      
+       learnings=await learningsModule.findById(learningId);
+      
+    } catch (err) {
+      const error= new HttpError(
+        `Something went wrong, Could not find a place. ${err}`,500
+      );
+      return next(error);
+    }
         if(!learnings || learnings.length === 0){  
         //    return res.status(404).json({message:`Cannot find the Learning resource ${learningId}`});
-        throw new HttpError(`Cannot find the Learnings resource ${learningId}`,404);   
-      
-        
-        
+        const error= new HttpError
+        (`Cannot find the Learnings resource ${learningId}`,
+        404);   
+      return next(error);
     }
 
-    res.json({learnings: learnings}); // can also be written as ({learning});
+    res.json({learnings: learnings.toObject({getters:true})}); // can also be written as ({learning});
 };
 
 export const getLearningByUserId=(req,res,next)=>{
