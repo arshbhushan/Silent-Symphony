@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid';
 import { validationResult } from 'express-validator';
-// Rest of your code...
 
 import {HttpError} from '../models/http-error.js';
-
+//import { FingSpell } from '../models/fingerSpelling.js';
+import { learningsModule } from '../models/learnings.js';
 let DUMMY_LEARNINGS=[ 
 
     {
@@ -55,27 +55,34 @@ export const getLearningByUserId=(req,res,next)=>{
   
   };
 
-  export const createLearning = (req, res, next) => {
+  export const createLearning = async (req, res, next) => {
+
     const errors=validationResult(req);
     if(!errors.isEmpty()){
       console.log(errors);
-      throw new HttpError('Invalid inputs passed, please check your data.',422);
+      return next( new HttpError('Invalid inputs passed, please check your data.',422)
+      );
 
     }
 
-    const { Alphabet, handShape, videoUrl, mnemonicTip, creator } = req.body;
-    const createdLearning = {
-      id:uuid(),
-      Alphabet,
-      handShape: {
-        imageUrl: handShape.imageUrl,
-        description: handShape.description,
-      },
-      videoUrl,
-      mnemonicTip,
-      creator,
-    };
-    DUMMY_LEARNINGS.push(createdLearning);
+    const { title, description, image, creator } = req.body;
+
+    const createdLearning = new learningsModule({
+      title,
+      description,
+      image: "https://i.pinimg.com/originals/71/28/3b/71283bb49db55cfee5bb6acd1389c465.jpg",
+      creator
+    });
+    try {
+      await createdLearning.save();
+      
+    } catch (err) {
+      const error= new HttpError(
+        `creating learning failed, please try again. ${err}`,500
+      );
+      return next(error);
+    }
+
     res.status(201).json({learning:createdLearning}) ;
   };
   export const updateLearning = (req, res, next) => {

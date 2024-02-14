@@ -8,6 +8,7 @@ const FingerSpelling = mongoose.Schema({
   },
   videoUrl: { type: String, default: '' },
   mnemonicTips: { type: [String], default: [] },
+  creator: {type:String,required: true},
 },
 {
   timestamps: true,
@@ -15,3 +16,18 @@ const FingerSpelling = mongoose.Schema({
 
 
 export const FingSpell = mongoose.model('FingerSpelling', FingerSpelling);
+
+
+
+//will be used later. 
+
+// const createdLearning = new learningsModule({
+//   Alphabet,
+//   handShape:{
+//     imageUrl: handShape.imageUrl,
+//     description: handShape.description
+//   },
+//   videoUrl,
+//   mnemonicTip,
+//   creator
+// });
