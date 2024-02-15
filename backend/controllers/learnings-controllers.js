@@ -4,6 +4,8 @@ import { validationResult } from 'express-validator';
 import {HttpError} from '../models/http-error.js';
 //import { FingSpell } from '../models/fingerSpelling.js';
 import { learningsModule } from '../models/learnings.js';
+import { userModule } from '../models/user.js';
+import mongoose from 'mongoose';
 
 let DUMMY_LEARNINGS=[ 
 
@@ -90,10 +92,34 @@ export const getLearningByUserId=async (req,res,next)=>{
       image: "https://i.pinimg.com/originals/71/28/3b/71283bb49db55cfee5bb6acd1389c465.jpg",
       creator
     });
+     
+    let user;
     try {
-      await createdLearning.save();
+      user=await userModule.findById(creator);
+    } catch (err) {
+      console.error('Error during Login: ', err);
+      const error=new HttpError('Creating learning failed, Please try again. ',
+      500);
+      return next(error);
+    }
+    console.log(user);
+
+    if(!user){
+      const error=new HttpError('Could not find user for the provided Id',404);
+      return next(error);
+    }
+
+    try {
+    
+      const sess=await mongoose.startSession();
+      sess.startTransaction();
+      await createdLearning.save({session :sess});
+      user.learnings.push(createdLearning);
+      await user.save({session :sess});
+      await sess.commitTransaction();
       
     } catch (err) {
+      console.error('Error during Login: ', err);
       const error= new HttpError(
         `creating learning failed, please try again. ${err}`,500
       );
