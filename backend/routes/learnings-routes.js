@@ -23,9 +23,9 @@ router.post(
 
 router.patch('/:lid',[
     check('title').not().isEmpty(),
-    check('description').not().isLength({min:5}),
+    check('description').isLength({ min: 5 }).withMessage('Description must be at least 5 characters long'),
     check('image').not().isEmpty(),
-    check('creator').not().isEmpty(),
+
 ],
 learningsControllers.updateLearning);
 

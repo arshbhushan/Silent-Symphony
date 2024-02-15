@@ -31,3 +31,13 @@ export const FingSpell = mongoose.model('FingerSpelling', FingerSpelling);
 //   mnemonicTip,
 //   creator
 // });
+
+
+  
+// updateLearning.Alphabet = Alphabet;
+// updateLearning.handShape = {
+//   imageUrl: handShape.imageUrl,
+//   description: handShape.description // Add other properties as needed
+// };
+// updateLearning.videoUrl = videoUrl;
+// updateLearning.mnemonicTip = mnemonicTip;// Fix property name here

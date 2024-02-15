@@ -102,40 +102,44 @@ export const getLearningByUserId=async (req,res,next)=>{
 
     res.status(201).json({learning:createdLearning}) ;
   };
-  export const updateLearning = (req, res, next) => {
-    const errors=validationResult(req);
-    if(!errors.isEmpty()){
-      console.log(errors);
-      throw new HttpError('Invalid inputs passed, please check your data.',422);
 
+  export const updateLearning = async (req, res, next) => {
+    console.log(req.body); // Add this line to log the request body
+    // console.log(req.body.description);
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        console.log(errors);
+        throw new HttpError('Invalid inputs passed, please check your data.', 422);
     }
 
-    const { Alphabet, handShape,  videoUrl, mnemonicTip } = req.body;
-    const learningId = req.params.lid;
-  
-    // Assuming DUMMY_LEARNINGS is an array of learning objects
-    const updateLearning = { ...DUMMY_LEARNINGS.find(l => l.id === learningId) };
-  
-    if (!updateLearning) {
-      // Handle the case where the learning with the given ID is not found
-      return res.status(404).json({ message: `Learning with ID ${learningId} not found` });
-    }
-  
-    const learningIndex = DUMMY_LEARNINGS.findIndex(l => l.id === learningId);
-  
-    updateLearning.Alphabet = Alphabet;
-    updateLearning.handShape = {
-      imageUrl: handShape.imageUrl,
-      description: handShape.description // Add other properties as needed
-    };
-    updateLearning.videoUrl = videoUrl;
-    updateLearning.mnemonicTip = mnemonicTip;// Fix property name here
-  
-    // Update the learning in the DUMMY_LEARNINGS array
-    DUMMY_LEARNINGS[learningIndex] = updateLearning;
-  
-    // Send the updated learning as a response
-    res.status(200).json({ learning: updateLearning });
+    const { title, description, image } = req.body;
+const learningId = req.params.lid; // Assuming you are getting the learning ID from URL parameters
+
+let learning;
+
+try {
+    learning = await learningsModule.findById(learningId);
+} catch (err) {
+    const error = new HttpError(`Something went wrong, Could not update the Learning. ${err}`, 500);
+    return next(error);
+}
+
+// Update the learning instance
+learning.title = title;
+learning.description = description;
+learning.image = image;
+
+try {
+    await learning.save(); // Use the instance method to save changes
+} catch (err) {
+    const error = new HttpError('Something went wrong, could not update learning.', 500);
+    return next(error);
+}
+
+// Send the updated learning as a response
+res.status(200).json({ learning: learning.toObject({ getters: true }) });
+
   };
   
 
