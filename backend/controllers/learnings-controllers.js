@@ -20,7 +20,7 @@ let DUMMY_LEARNINGS=[
     }
   ];
 
-
+ 
 
   export const getLearningsById=async (req,res,next)=>{
     const  learningId = req.params.learningId;
@@ -31,7 +31,7 @@ let DUMMY_LEARNINGS=[
       
     } catch (err) {
       const error= new HttpError(
-        `Something went wrong, Could not find a place. ${err}`,500
+        `Something went wrong, Could not find the Learning. ${err}`,500
       );
       return next(error);
     }
@@ -46,21 +46,29 @@ let DUMMY_LEARNINGS=[
     res.json({learnings: learnings.toObject({getters:true})}); // can also be written as ({learning});
 };
 
-export const getLearningByUserId=(req,res,next)=>{
+export const getLearningByUserId=async (req,res,next)=>{
     const userId=req.params.uid;
   
-    const  learningsByUser=DUMMY_LEARNINGS.find(learning=>{
-  return learning.creator === userId; 
-    }); 
-    if(!learningsByUser){  
+    let learnings
+    try {
+      
+       learnings=await learningsModule.find({creator:userId});
+      
+    } catch (err) {
+      const error= new HttpError(
+        'Something went wrong, Could not find a learning .',500
+      );
+      return next(error);
+    }
+    if(!learnings || learnings.length===0){  
          
           return next(
-             new HttpError(`Cannot find the Learning resource ${userId}`)
+             new HttpError(`Cannot find the Learning resource for the provided user Id: ${userId}`,404)
              );
       // return res.status(404).json({message:`Cannot find the Learning resource ${userId}`});
    }
   
-  res.json({learningsByUser});
+  res.json({learnings:learnings.map(learnings=>learnings.toObject({getters:true})) });
   
   };
 
