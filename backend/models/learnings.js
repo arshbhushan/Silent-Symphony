@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const learnings = mongoose.Schema({
-title : {type: String,reqyired:true},
-description: {type: String,reqyired:true},
-image: {type: String,reqyired:true},
-creator: {type: String,reqyired:true},
+title : {type: String,required:true},
+description: {type: String,required:true},
+image: {type: String,required:true},
+creator: {type: String,required:true},
 
 });
 
