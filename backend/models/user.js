@@ -5,7 +5,7 @@ const userSchema = mongoose.Schema({
     email: {type: String,required:true,unique: true},
     password: {type: String,required:true, minlength:6},
     image: {type: String,required:true},
-    learnings: {type: String,required:true},
+    learnings: [{type: mongoose.Types.ObjectId,required: true, ref:'Learnings'}],
     
     });
     userSchema.plugin(uniqueValidator);  //This will add a unique index to the email field in MongoDB

@@ -36,7 +36,7 @@ export const signup = async (req, res, next) => {
             new HttpError('Invalid inputs passed, please check your data.', 422)
         );
     }
-    const { name, email, password, learnings } = req.body;
+    const { name, email, password } = req.body;
     
     let existingUser;
     try {
@@ -57,7 +57,7 @@ export const signup = async (req, res, next) => {
         email,
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgqCuBEbcuUQ_iVX2wOQYfvY_7k6MjRt842py5rnaERVTz6sw8TzhAt6S1lHA1zY7ITpQ&usqp=CAU',
         password,
-        learnings
+        learnings:[]
     });
 
     try {
