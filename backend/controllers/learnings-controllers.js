@@ -1,199 +1,212 @@
 import { v4 as uuid } from 'uuid';
 import { validationResult } from 'express-validator';
 
-import {HttpError} from '../models/http-error.js';
+import { HttpError } from '../models/http-error.js';
 //import { FingSpell } from '../models/fingerSpelling.js';
 import { learningsModule } from '../models/learnings.js';
 import { userModule } from '../models/user.js';
 import mongoose from 'mongoose';
 
-let DUMMY_LEARNINGS=[ 
+let DUMMY_LEARNINGS = [
 
-    {
-      id:'l1',
+  {
+    id: 'l1',
     Alphabet: "A",
     handShape: {
       imageUrl: "https://previews.123rf.com/images/belchonock/belchonock1309/belchonock130901518/22020912-finger-spelling-the-alphabet-in-american-sign-language-asl-letter-a.jpg",
       description: "Make a fist with your thumb pointing upwards."
-      },
+    },
     videoUrl: "https://example.com/videos/finger-spelling-A.mp4",
     mnemonicTip: "Think of an antenna on top of your head.",
     creator: 'u1'
-    }
-  ];
+  }
+];
 
- 
 
-  export const getLearningsById=async (req,res,next)=>{
-    const  learningId = req.params.learningId;
-    let learnings;
-    try {
-      
-       learnings=await learningsModule.findById(learningId);
-      
-    } catch (err) {
-      const error= new HttpError(
-        `Something went wrong, Could not find the Learning. ${err}`,500
-      );
-      return next(error);
-    }
-        if(!learnings || learnings.length === 0){  
-        //    return res.status(404).json({message:`Cannot find the Learning resource ${learningId}`});
-        const error= new HttpError
-        (`Cannot find the Learnings resource ${learningId}`,
-        404);   
-      return next(error);
-    }
 
-    res.json({learnings: learnings.toObject({getters:true})}); // can also be written as ({learning});
+export const getLearningsById = async (req, res, next) => {
+  const learningId = req.params.learningId;
+  let learnings;
+  try {
+
+    learnings = await learningsModule.findById(learningId);
+
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong, Could not find the Learning. ${err}`, 500
+    );
+    return next(error);
+  }
+  if (!learnings || learnings.length === 0) {
+    //    return res.status(404).json({message:`Cannot find the Learning resource ${learningId}`});
+    const error = new HttpError
+      (`Cannot find the Learnings resource ${learningId}`,
+        404);
+    return next(error);
+  }
+
+  res.json({ learnings: learnings.toObject({ getters: true }) }); // can also be written as ({learning});
 };
 
-export const getLearningByUserId=async (req,res,next)=>{
-    const userId=req.params.uid;
-  
-    let learnings
-    try {
-      
-       learnings=await learningsModule.find({creator:userId});
-      
-    } catch (err) {
-      const error= new HttpError(
-        'Something went wrong, Could not find a learning .',500
-      );
-      return next(error);
-    }
-    if(!learnings || learnings.length===0){  
-         
-          return next(
-             new HttpError(`Cannot find the Learning resource for the provided user Id: ${userId}`,404)
-             );
-      // return res.status(404).json({message:`Cannot find the Learning resource ${userId}`});
-   }
-  
-  res.json({learnings:learnings.map(learnings=>learnings.toObject({getters:true})) });
-  
-  };
+export const getLearningByUserId = async (req, res, next) => {
+  const userId = req.params.uid;
 
-  export const createLearning = async (req, res, next) => {
+  let learnings
+  try {
 
-    const errors=validationResult(req);
-    if(!errors.isEmpty()){
-      console.log(errors);
-      return next( new HttpError('Invalid inputs passed, please check your data.',422)
-      );
+    learnings = await learningsModule.find({ creator: userId });
 
-    }
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, Could not find a learning .', 500
+    );
+    return next(error);
+  }
+  if (!learnings || learnings.length === 0) {
 
-    const { title, description, image, creator } = req.body;
+    return next(
+      new HttpError(`Cannot find the Learning resource for the provided user Id: ${userId}`, 404)
+    );
+    // return res.status(404).json({message:`Cannot find the Learning resource ${userId}`});
+  }
 
-    const createdLearning = new learningsModule({
-      title,
-      description,
-      image: "https://i.pinimg.com/originals/71/28/3b/71283bb49db55cfee5bb6acd1389c465.jpg",
-      creator
-    });
-     
-    let user;
-    try {
-      user=await userModule.findById(creator);
-    } catch (err) {
-      console.error('Error during Login: ', err);
-      const error=new HttpError('Creating learning failed, Please try again. ',
+  res.json({ learnings: learnings.map(learnings => learnings.toObject({ getters: true })) });
+
+};
+
+export const createLearning = async (req, res, next) => {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return next(new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+
+  }
+
+  const { title, description, image, creator } = req.body;
+
+  const createdLearning = new learningsModule({
+    title,
+    description,
+    image: "https://i.pinimg.com/originals/71/28/3b/71283bb49db55cfee5bb6acd1389c465.jpg",
+    creator
+  });
+
+  let user;
+  try {
+    user = await userModule.findById(creator);
+  } catch (err) {
+    console.error('Error during Login: ', err);
+    const error = new HttpError('Creating learning failed, Please try again. ',
       500);
-      return next(error);
-    }
-    console.log(user);
+    return next(error);
+  }
+  console.log(user);
 
-    if(!user){
-      const error=new HttpError('Could not find user for the provided Id',404);
-      return next(error);
-    }
+  if (!user) {
+    const error = new HttpError('Could not find user for the provided Id', 404);
+    return next(error);
+  }
 
-    try {
-    
-      const sess=await mongoose.startSession();
-      sess.startTransaction();
-      await createdLearning.save({session :sess});
-      user.learnings.push(createdLearning);
-      await user.save({session :sess});
-      await sess.commitTransaction();
-      
-    } catch (err) {
-      console.error('Error during Login: ', err);
-      const error= new HttpError(
-        `creating learning failed, please try again. ${err}`,500
-      );
-      return next(error);
-    }
+  try {
 
-    res.status(201).json({learning:createdLearning}) ;
-  };
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await createdLearning.save({ session: sess });
+    user.learnings.push(createdLearning);
+    await user.save({ session: sess });
+    await sess.commitTransaction();
 
-  export const updateLearning = async (req, res, next) => {
-    console.log(req.body); // Add this line to log the request body
-    // console.log(req.body.description);
+  } catch (err) {
+    console.error('Error during Login: ', err);
+    const error = new HttpError(
+      `creating learning failed, please try again. ${err}`, 500
+    );
+    return next(error);
+  }
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        console.log(errors);
-        return next(new HttpError("Invalid inputs passed, plese check your data.", 422));
-        
-    }
+  res.status(201).json({ learning: createdLearning });
+};
 
-    const { title, description, image } = req.body;
-const learningId = req.params.lid; // Assuming you are getting the learning ID from URL parameters
+export const updateLearning = async (req, res, next) => {
+  console.log(req.body); // Add this line to log the request body
+  // console.log(req.body.description);
 
-let learning;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return next(new HttpError("Invalid inputs passed, plese check your data.", 422));
 
-try {
+  }
+
+  const { title, description, image } = req.body;
+  const learningId = req.params.lid; // Assuming you are getting the learning ID from URL parameters
+
+  let learning;
+
+  try {
     learning = await learningsModule.findById(learningId);
-} catch (err) {
+  } catch (err) {
     const error = new HttpError(`Something went wrong, Could not update the Learning. ${err}`, 500);
     return next(error);
-}
+  }
 
-// Update the learning instance
-learning.title = title;
-learning.description = description;
-learning.image = image;
+  // Update the learning instance
+  learning.title = title;
+  learning.description = description;
+  learning.image = image;
 
-try {
+  try {
     await learning.save(); // Use the instance method to save changes
-} catch (err) {
+  } catch (err) {
     const error = new HttpError('Something went wrong, could not update learning.', 500);
     return next(error);
-}
+  }
 
-// Send the updated learning as a response
-res.status(200).json({ learning: learning.toObject({ getters: true }) });
+  // Send the updated learning as a response
+  res.status(200).json({ learning: learning.toObject({ getters: true }) });
 
-  };
-  
+};
 
-  export const deleteLearning = async (req, res, next) => {
-    const learningId = req.params.lid;
-  
-    try {
-      // Use deleteOne to remove the learning
-      const result = await learningsModule.deleteOne({ _id: learningId });
-  
-      // Check if the learning was found and deleted
-      if (result.deletedCount === 0) {
-        return next(new HttpError('Learning not found.', 404));
-      }
-  
-      res.status(200).json({ message: 'Deleted Learning.' });
-    } catch (err) {
-      console.error(err);
-      const error = new HttpError('Something went wrong, could not delete learning.', 500);
-      return next(error);
-    }
-  };
-  
-  
-   
 
- 
+export const deleteLearning = async (req, res, next) => {
+  const learningId = req.params.lid.trim();
+  let learning;
 
-//   exports.getLearningById=getLearningById;  
+  try {
+    // Use deleteOne to remove the learning
+    learning = await learningsModule.findById(learningId).populate('creator');
+  } catch (err) {
+    console.error(err);
+    const error = new HttpError('Something went wrong, could not delete learning.', 500);
+    return next(error);
+  }
+
+  if (!learning) {
+    const error = new HttpError('Could not find learning for this id. ', 404);
+    return next(error);
+  }
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+
+    // Use deleteOne instead of remove
+    await learning.deleteOne({ session: sess });
+
+    learning.creator.learnings.pull(learning);
+    await learning.creator.save({ session: sess });
+
+    await sess.commitTransaction();
+  } catch (err) {
+    const error = new HttpError('Something went wrong, could not delete learning.', 500);
+    return next(error);
+  }
+
+  res.status(200).json({ message: 'Deleted Learning.' });
+};
+
+
+//   exports.getLearningById=getLearningById;
 //   exports.getLearningByUserId=getLearningByUserId;
