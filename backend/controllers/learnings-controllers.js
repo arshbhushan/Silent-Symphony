@@ -7,23 +7,6 @@ import { learningsModule } from '../models/learnings.js';
 import { userModule } from '../models/user.js';
 import mongoose from 'mongoose';
 
-let DUMMY_LEARNINGS = [
-
-  {
-    id: 'l1',
-    Alphabet: "A",
-    handShape: {
-      imageUrl: "https://previews.123rf.com/images/belchonock/belchonock1309/belchonock130901518/22020912-finger-spelling-the-alphabet-in-american-sign-language-asl-letter-a.jpg",
-      description: "Make a fist with your thumb pointing upwards."
-    },
-    videoUrl: "https://example.com/videos/finger-spelling-A.mp4",
-    mnemonicTip: "Think of an antenna on top of your head.",
-    creator: 'u1'
-  }
-];
-
-
-
 export const getLearningsById = async (req, res, next) => {
   const learningId = req.params.learningId;
   let learnings;
