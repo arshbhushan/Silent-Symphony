@@ -143,17 +143,30 @@ res.status(200).json({ learning: learning.toObject({ getters: true }) });
   };
   
 
-  export const  deleteLearning = (req, res, next) => {
-    const  learningId = req.params.lid;
-    if(!DUMMY_LEARNINGS.find(l=>l.id === learningId)){
-        throw new HttpError(`Could not find a learning for that id. ${id}`,422);
+  export const deleteLearning = async (req, res, next) => {
+    const learningId = req.params.lid;
+  
+    try {
+      // Use deleteOne to remove the learning
+      const result = await learningsModule.deleteOne({ _id: learningId });
+  
+      // Check if the learning was found and deleted
+      if (result.deletedCount === 0) {
+        return next(new HttpError('Learning not found.', 404));
+      }
+  
+      res.status(200).json({ message: 'Deleted Learning.' });
+    } catch (err) {
+      console.error(err);
+      const error = new HttpError('Something went wrong, could not delete learning.', 500);
+      return next(error);
     }
-    DUMMY_LEARNINGS=DUMMY_LEARNINGS.filter(l=> l.id !==learningId);
-    res.status(200).json({ message: 'Deleted Learnings.' });
   };
-     
+  
+  
+   
 
-
+ 
 
 //   exports.getLearningById=getLearningById;  
 //   exports.getLearningByUserId=getLearningByUserId;
