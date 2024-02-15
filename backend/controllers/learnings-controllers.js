@@ -24,7 +24,7 @@ let DUMMY_LEARNINGS=[
 
   export const getLearningsById=async (req,res,next)=>{
     const  learningId = req.params.learningId;
-    let learnings
+    let learnings;
     try {
       
        learnings=await learningsModule.findById(learningId);
