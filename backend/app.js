@@ -15,8 +15,18 @@ const app = express();
 
 // middleware for parsing request body
 app.use(express.json());
-app.use(cors());
-// app.use(router);
+// app.use(cors());
+// // app.use(router);
+
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin,X-Requested-With, Content-Type,Accept,Authorization'
+  );
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUTS,DELETE');
+  next(); 
+})
 
 app.get('/', (req, res) => {
     console.log(req);
