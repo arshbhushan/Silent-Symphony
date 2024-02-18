@@ -77,10 +77,10 @@ const LearningItem= props => {
             <Button onClick={openVideoHandler} to={`/learnings/${props.videoUrl}`}>View Video Tutorial</Button>
             {/* here I'll add the ML Model for users to try */}
            {/* <Button to={}>Try Now!</Button> */} 
-           {auth.isLoggedIn && (<Button to={`/learnings/${props.id}`}>EDIT</Button> ) }
+           {auth.userId===props.creatorId && (<Button to={`/learnings/${props.id}`}>EDIT</Button> ) }
            {auth.isLoggedIn && (<Button>Try Now!</Button>)}
            {auth.isLoggedIn && (<Button danger onClick={showDeleteWarningHandler}>DELETE</Button>) }
-             
+           {/* auth.userId===props.creatorId  this is written if only the creator could edit or delete it*/}
         </div>
         </Card>
     </li>
