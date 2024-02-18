@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
+import { AuthContext } from '../../shared/context/auth-context';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { 
    VALIDATOR_REQUIRE,
    VALIDATOR_MINLENGTH } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
+import { useHttpClient } from '../../shared/hooks/http-hook';
 import './newLearning.css';
 
 
 
 const NewLearning = () => {
+  const auth=useContext(AuthContext);
   //used to manage multiple states like useState but in a better way.
-  const [formState, InputHandler] = 
+  const{isLoading,error,sendRequest,clearError} = useHttpClient();
+  const [formState, inputHandler] = 
   useForm(
     {
       title: {
@@ -21,21 +28,40 @@ const NewLearning = () => {
       description: {
         value: '',
         isValid: false
+      },
+      image:{
+        value:'', 
+        isValid:false
       }
     },//add more like images, video,hints to remember here
+    
     false
   );
+  const navigate = useNavigate();
 
-
-
-  const learningSubmitHandler = event => {
+  const learningSubmitHandler =async event => {
     event.preventDefault();
     //sending  all the input data to the server
-    console.log(formState.inputs);
-  }
+    try {   
+      await  sendRequest('http://localhost:5555/api/learnings',
+      'POST',
+      JSON.stringify({
+          title : formState.inputs.title.value ,
+          description : formState.inputs.description.value,
+          image:formState.inputs.image.value,
+          creator: auth.userId
+        }),
+        {'Content-Type':'application/json'}
+        );
+        navigate('/');
+      } catch (err) {}
+  };
 
   return (
+    <>
+    <ErrorModal error={error}onClear={clearError} />
     <form className="place-form" onSubmit={learningSubmitHandler}>
+    {isLoading && <LoadingSpinner asOverlay/>}
       <Input
         id="title"
         element="input"
@@ -43,7 +69,7 @@ const NewLearning = () => {
         label="Title"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Please enter a valid title."
-        onInput={InputHandler}
+        onInput={inputHandler}
       />
       <Input
         id="description"
@@ -51,12 +77,21 @@ const NewLearning = () => {
         label="Description"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid description (at least 5 characters). "
-        onInput={InputHandler}
+        onInput={inputHandler}
+      />
+      <Input
+        id="image"
+        element="textarea"
+        label="Image"
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="Please enter a valid image URL (at least 5 characters). "
+        onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>
         ADD LEARNING
       </Button>
     </form>
+  </>
   );
 };
 
