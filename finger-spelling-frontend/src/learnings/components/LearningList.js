@@ -21,12 +21,13 @@ const LearningList=props=>{
         <LearningItem 
         key={learning.id} 
         id={learning.id} 
-        image={learning.imageUrl}
+        image={learning.image}
         title={learning.title}
         description={learning.description}
         videoUrl={learning.videoUrl}
         mnemonicTips={learning.mnemonicTips}
         learner={learning.learner}
+        onDelete={props.onDeleteLearning}
         />)}
     </ul>
 

@@ -123,7 +123,9 @@ export const updateLearning = async (req, res, next) => {
 
   }
 
-  const { title, description, image } = req.body;
+  const { title, description, 
+    //image 
+  } = req.body;
   const learningId = req.params.lid; // Assuming you are getting the learning ID from URL parameters
 
   let learning;
@@ -138,7 +140,7 @@ export const updateLearning = async (req, res, next) => {
   // Update the learning instance
   learning.title = title;
   learning.description = description;
-  learning.image = image;
+  //learning.image = image;
 
   try {
     await learning.save(); // Use the instance method to save changes

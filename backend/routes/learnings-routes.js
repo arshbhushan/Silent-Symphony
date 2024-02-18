@@ -3,8 +3,10 @@
 import express from "express";
 import * as learningsControllers from '../controllers/learnings-controllers.js';
 import {check} from  "express-validator";
+import cors from 'cors';
 
 const router = express.Router();
+router.use(cors());
 
 router.get('/:learningId', learningsControllers.getLearningsById);
 router.get('/user/:uid', learningsControllers.getLearningByUserId);
@@ -24,7 +26,7 @@ router.post(
 router.patch('/:lid',[
     check('title').not().isEmpty(),
     check('description').isLength({ min: 5 }).withMessage('Description must be at least 5 characters long'),
-    check('image').not().isEmpty(),
+    //check('image').not().isEmpty(),
 
 ],
 learningsControllers.updateLearning);

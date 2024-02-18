@@ -1,128 +1,134 @@
-import React , {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState ,useContext} from "react";
+import { useParams,useNavigate } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
-import { useForm } from "../../shared/hooks/form-hook";
 import Card from "../../shared/components/UIElements/Card";
-import { VALIDATOR_REQUIRE,VALIDATOR_MINLENGTH } from "../../shared/util/validators";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../shared/util/validators";
+import { useForm } from "../../shared/hooks/form-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+import {AuthContext} from "../../shared/context/auth-context.js"
+import './PlaceForm.css';
+
+const UpdateLearning = () => {
+    const auth = useContext(AuthContext);
+
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
+    const [loadedLearning, setLoadedLearning] = useState();
+    const LearningId = useParams().learningId;
 
 
-const Dummy_Learnings=[
-    {
-    id:'p1',
-    title: 'Programming 101',
-    description: `This is a basic course in programming. It covers the basics of programming such`,
-    imageUrl:'https://clipart-library.com/data_images/6103.png',
-    videoUrl:'https://www.youtube.com/watch?v=rcR4iBXgBVo',
-    mnemonicTips:'Think of an antenna on top of your head.', 
-    learner:'u1'
-},
-{
-    id:'p2',
-    title: 'Programming 102',
-    description: `This is an intermidiate course in programming. It covers the basics of programming such`,
-    imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwxqPi54oXAJAWSZ1VfEzsWwnINcesqCaxvhKcqStLYQ&s',
-    videoUrl:'https://www.youtube.com/shorts/DB0j1aaiiwQ',
-    mnemonicTips:'Imagine two baseball bats tapping together.',
-    learner:'u2'
-},
-]
-
-
-const UpdateLearning=()=>{
-    const [isLoading,setIsLoading]=useState(true);
-    const LearningId=useParams().learningId;
-
-  
-    const identifiedLearning=Dummy_Learnings.find(l=>l.id === LearningId);
-     
-    const[formState,InputHandler,setFormData]=useForm({
-        title:{
-            value:identifiedLearning.title,
-            placeholder:"Title",
+    const [formState, InputHandler, setFormData] = useForm({
+        title: {
+            value: '',
+            placeholder: "Title",
             isValid: false,
         },
         description: {
-        value: identifiedLearning.description,
-        isValid: false
-
+            value: '',
+            isValid: false
         }
-    },false); 
+    }, false);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchLearning = async () => {
+            try {
+                const responseData = await sendRequest(`http://localhost:5555/api/learnings/${LearningId}`);
+               setLoadedLearning(responseData.learnings); 
+               console.log("Response Data:", responseData);
 
-
-    
-
-    useEffect(()=>{
-        if(identifiedLearning){
-            setFormData({
-                title:{
-                    value:identifiedLearning.title,
-                    placeholder:"Title",
+               setFormData({
+                title: {
+                    value: responseData.learnings.title,
+                    placeholder: "Title",
                     isValid: true,
                 },
                 description: {
-                value: identifiedLearning.description,
-                isValid: true
-        
+                    value: responseData.learnings.description,
+                    isValid: true
+
                 }
             },
-            true
-            ); 
-        }
+                true
+            )
+            } catch (err) { }
+        };
+        fetchLearning();
 
-    setIsLoading(false);
-    },
-[setFormData,identifiedLearning]);
+    }, [sendRequest, LearningId,setFormData]);
 
-    const LearningUpdateSubmitHandler=event=>{
+
+    const LearningUpdateSubmitHandler = async event => {
         event.preventDefault();
-        console.log(formState.inputs);
-    }
-
-    if(!identifiedLearning){
-     return(
-     <div className="center">
-        <Card>
-        <h2>Could not find leaning</h2>
-        </Card>   
-        </div>
-        
-     );
-    }
+        try {
+            await sendRequest(
+                `http://localhost:5555/api/learnings/${LearningId}`,
+                'PATCH',
+                JSON.stringify({
+                    title: formState.inputs.title.value,
+                    description: formState.inputs.description.value,
+                }),
+                {
+                    'Content-Type': 'application/json',
+                }
+            );
+            navigate('/' + auth.userId + '/learnings');
+        } catch (err) {}
+    };
     
+
     if (isLoading) {
         return (
-          <div className="center">
-            <h2>Loading...</h2>
-          </div>
+            <div className="center">
+                <LoadingSpinner/>
+            </div>
         );
-      }
+    }
+    if (!loadedLearning && !error) {
+        return (
+            <div className="center">
+                <Card>
+                    <h2>Could not find leaning</h2>
+                </Card>
+            </div>
 
-    return <form className="place-form"  onSubmit={LearningUpdateSubmitHandler}>
-      <Input id="title"
-      element="input"
-      type="text"
-      label="Title"
-      validators={[VALIDATOR_REQUIRE()]}
-      errorText="Please enter a valid title."
-      onInput={InputHandler}
-       initialValue={formState.inputs.title.value}
-       initialValid={formState.inputs.title.isValid}
-      />
-      <Input id="description"
-      element="textarea"
-      label="Description"
-      validators={[VALIDATOR_MINLENGTH(5)]}
-      errorText="Please enter a valid description (min. 5 characters)."
-      onInput={InputHandler}
-       initialValue={formState.inputs.description.value}
-       initialValid={formState.inputs.description.isValid}
-      />
-      <Button type="submit" disabled={!formState.isValid}>
-        Learning Updated.
-      </Button>
+        );
+    }
 
-    </form>;
+    return (
+    <>
+    <ErrorModal error={error} onClear={clearError}/>
+
+    {!isLoading && loadedLearning && (
+    <form className="place-form" onSubmit={LearningUpdateSubmitHandler}>
+        <Input id="title"
+            element="input"
+            type="text"
+            label="Title"
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText="Please enter a valid title."
+            onInput={InputHandler}
+            initialValue={loadedLearning.title}
+            initialValid={true}
+        />
+        <Input id="description"
+            element="textarea"
+            label="Description"
+            validators={[VALIDATOR_MINLENGTH(5)]}
+            errorText="Please enter a valid description (min. 5 characters)."
+            onInput={InputHandler}
+            initialValue={loadedLearning.description}
+            initialValid={true}
+        />
+        <Button type="submit" disabled={!formState.isValid}>
+            Learning Updated.
+        </Button>
+
+    </form>
+    )}
+    </>
+    );
 };
 
 export default UpdateLearning;
