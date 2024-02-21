@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import express, { response } from "express";
 import mongoose from "mongoose";
 import { PORT, mongoDBURL } from "./config.js";
@@ -8,6 +10,7 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import learningsRouters from "./routes/learnings-routes.js";
 import usersRouters from "./routes/usersRoutes.js";
+import { log } from "console";
 
 
 const app = express();
@@ -17,6 +20,8 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 // // app.use(router);
+// express.static() -> static serving means just returning the file without executing i.
+ app.use('/uploads/images',express.static(path.join('uploads','images'))); 
 
 app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Origin','*');
@@ -29,6 +34,12 @@ app.use((req,res,next)=>{
 })
 
 app.get('/', (req, res) => {
+  if(req.file){
+    //delets the file if there was an error but the image was uploaded
+    fs.unlink(req.file.path,(err=>{
+      console.log(err);
+    }))
+  }
     console.log(req);
     return res.status(201).send('Home page for the specially-abled kids');
 });

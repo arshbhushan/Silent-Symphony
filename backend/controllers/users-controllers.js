@@ -45,7 +45,7 @@ export const signup = async (req, res, next) => {
     const createdUser = new userModule({
         name,
         email,
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgqCuBEbcuUQ_iVX2wOQYfvY_7k6MjRt842py5rnaERVTz6sw8TzhAt6S1lHA1zY7ITpQ&usqp=CAU',
+        image:req.file.path, // basically this means this fetches the images here 'http://localhost:5555'+req.file.path
         password,
         learnings:[]
     });

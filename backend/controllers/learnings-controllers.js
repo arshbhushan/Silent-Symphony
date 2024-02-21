@@ -48,7 +48,7 @@ export const getLearningByUserId = async (req, res, next) => {
   if (!learnings || learnings.length === 0) {
 
     return next(
-      new HttpError(`Cannot find the Learning resource for the provided user Id: ${userId}`, 404)
+      new HttpError(`Cannot find the Learning resource for the provided user`, 404)
     );
     // return res.status(404).json({message:`Cannot find the Learning resource ${userId}`});
   }
