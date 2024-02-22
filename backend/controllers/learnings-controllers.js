@@ -67,12 +67,12 @@ export const createLearning = async (req, res, next) => {
 
   }
 
-  const { title, description, image, creator } = req.body;
+  const { title, description, image,creator } = req.body;
 
   const createdLearning = new learningsModule({
     title,
     description,
-    image: "https://i.pinimg.com/originals/71/28/3b/71283bb49db55cfee5bb6acd1389c465.jpg",
+    image: req.file.path ,
     creator
   });
 

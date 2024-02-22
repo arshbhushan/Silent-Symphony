@@ -5,6 +5,7 @@ import Button from '../../shared/components/FormElements/Button';
 import { AuthContext } from '../../shared/context/auth-context';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import { 
    VALIDATOR_REQUIRE,
    VALIDATOR_MINLENGTH } from '../../shared/util/validators';
@@ -30,7 +31,7 @@ const NewLearning = () => {
         isValid: false
       },
       image:{
-        value:'', 
+        value:null, 
         isValid:false
       }
     },//add more like images, video,hints to remember here
@@ -42,17 +43,14 @@ const NewLearning = () => {
   const learningSubmitHandler =async event => {
     event.preventDefault();
     //sending  all the input data to the server
-    try {   
-      await  sendRequest('http://localhost:5555/api/learnings',
-      'POST',
-      JSON.stringify({
-          title : formState.inputs.title.value ,
-          description : formState.inputs.description.value,
-          image:formState.inputs.image.value,
-          creator: auth.userId
-        }),
-        {'Content-Type':'application/json'}
-        );
+    try {  
+      const formData = new FormData();
+      formData.append('title', formState.inputs.title.value);
+      formData.append('description', formState.inputs.description.value);
+      formData.append('creator',auth.userId);
+      formData.append('image', formState.inputs.image.value);
+    
+      await  sendRequest('http://localhost:5555/api/learnings','POST',formData);
         navigate('/');
       } catch (err) {}
   };
@@ -79,14 +77,20 @@ const NewLearning = () => {
         errorText="Please enter a valid description (at least 5 characters). "
         onInput={inputHandler}
       />
-      <Input
+      {/* <Input
         id="image"
         element="textarea"
         label="Image"
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid image URL (at least 5 characters). "
         onInput={inputHandler}
+      /> */}
+      <ImageUpload 
+      id="image" 
+      onInput={inputHandler} 
+      errorText="Please provide an image"
       />
+
       <Button type="submit" disabled={!formState.isValid}>
         ADD LEARNING
       </Button>

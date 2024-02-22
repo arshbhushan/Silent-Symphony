@@ -2,6 +2,7 @@
 
 import express from "express";
 import * as learningsControllers from '../controllers/learnings-controllers.js';
+import { fileUpload } from "../middleware/file-upload.js";
 import {check} from  "express-validator";
 import cors from 'cors';
 
@@ -9,14 +10,16 @@ const router = express.Router();
 router.use(cors());
 
 router.get('/:learningId', learningsControllers.getLearningsById);
+
 router.get('/user/:uid', learningsControllers.getLearningByUserId);
 
 router.post(
     '/',
+    fileUpload.single('image'),
     [
         check('title').not().isEmpty(),
         check('description').not().isEmpty(),
-        check('image').not().isEmpty(),
+        // check('image').not().isEmpty(),
         check('creator').not().isEmpty(),
         
     ],
