@@ -1,11 +1,12 @@
-import { v4 as uuid } from 'uuid';
 import { validationResult } from 'express-validator';
+import fs from "fs";
 
 import { HttpError } from '../models/http-error.js';
 //import { FingSpell } from '../models/fingerSpelling.js';
 import { learningsModule } from '../models/learnings.js';
 import { userModule } from '../models/user.js';
 import mongoose from 'mongoose';
+import { log } from 'console';
 
 export const getLearningsById = async (req, res, next) => {
   const learningId = req.params.learningId;
@@ -172,23 +173,23 @@ export const deleteLearning = async (req, res, next) => {
     const error = new HttpError('Could not find learning for this id. ', 404);
     return next(error);
   }
+    const imagePath=learning.image;
 
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-
     // Use deleteOne instead of remove
     await learning.deleteOne({ session: sess });
-
     learning.creator.learnings.pull(learning);
     await learning.creator.save({ session: sess });
-
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError('Something went wrong, could not delete learning.', 500);
     return next(error);
   }
-
+   fs.unlink(imagePath,err=>{
+    console.log(err);
+   });
   res.status(200).json({ message: 'Deleted Learning.' });
 };
 
