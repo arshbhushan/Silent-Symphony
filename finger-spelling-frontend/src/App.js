@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import './fingerSpelling/components/styles.css';
@@ -9,23 +9,11 @@ import UpdateLearning from './learnings/pages/UpdateLearning.js';
 import Auth from './user/pages/Auth.js';
 import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
+import { useAuth } from './shared/hooks/auth-hook.js';
 
 const App = () => {
-  const [token, setToken] = useState(false);
-  const [userId,setUserId]=useState(false);
+ const {token,login,logout,userId}=useAuth();
 
-  const login = useCallback((uid,token) => {
-    setToken(token);
-    localStorage.setItem(
-      'userData', 
-      JSON.stringify({userId:uid,token:token}));
-    setUserId(uid);
-  }, []);
-
-  const logout = useCallback(() => {
-    setToken(null);
-    setUserId(null);
-  }, []);
   let routes;
   if (token) {
     routes = (
@@ -50,8 +38,8 @@ const App = () => {
   return (
     <AuthContext.Provider value={{
       isLoggedIn: !!token,
-      token:token,
-      userId: userId, 
+      token: token,
+      userId: userId,
       login: login,
       logout: logout
     }}>
@@ -60,7 +48,7 @@ const App = () => {
         <main>
           <Routes>
 
-          {routes}
+            {routes}
 
 
           </Routes>

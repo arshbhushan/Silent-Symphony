@@ -14,7 +14,7 @@ router.get('/:learningId', learningsControllers.getLearningsById);
 
 router.get('/user/:uid', learningsControllers.getLearningByUserId);
 
-router.use(checkAuth),
+router.use(checkAuth);
 
 router.post(
     '/',

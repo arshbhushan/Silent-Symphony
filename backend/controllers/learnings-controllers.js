@@ -68,18 +68,18 @@ export const createLearning = async (req, res, next) => {
 
   }
 
-  const { title, description, image,creator } = req.body;
+  const { title, description} = req.body;
 
   const createdLearning = new learningsModule({
     title,
     description,
     image: req.file.path ,
-    creator
+    creator: req.userData.userId,
   });
 
   let user;
   try {
-    user = await userModule.findById(creator);
+    user = await userModule.findById(req.userData.userId);
   } catch (err) {
     console.error('Error during Login: ', err);
     const error = new HttpError('Creating learning failed, Please try again. ',
