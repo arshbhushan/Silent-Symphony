@@ -4,27 +4,27 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './fingerSpelling/components/styles.css';
 import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
-import NewLearning from './learnings/pages/NewLearning.js';
+import NewLearning from './learnings/pages/newLearning';
 import UpdateLearning from './learnings/pages/UpdateLearning.js';
 import Auth from './user/pages/Auth.js';
 import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState(false);
   const [userId,setUserId]=useState(false);
 
-  const login = useCallback((uid) => {
-    setIsLoggedIn(true);
+  const login = useCallback((uid,token) => {
+    setToken(token);
     setUserId(uid);
   }, []);
 
   const logout = useCallback(() => {
-    setIsLoggedIn(false);
+    setToken(null);
     setUserId(null);
   }, []);
   let routes;
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <>
         <Route path="/" element={<Users />} />
@@ -46,7 +46,8 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={{
-      isLoggedIn: isLoggedIn,
+      isLoggedIn: !!token,
+      token:token,
       userId: userId, 
       login: login,
       logout: logout

@@ -1,10 +1,11 @@
 // routes/learnings-routes.js
 
 import express from "express";
+import {check} from  "express-validator";
 import * as learningsControllers from '../controllers/learnings-controllers.js';
 import { fileUpload } from "../middleware/file-upload.js";
-import {check} from  "express-validator";
 import cors from 'cors';
+import checkAuth from "../middleware/check-auth.js";
 
 const router = express.Router();
 router.use(cors());
@@ -12,6 +13,8 @@ router.use(cors());
 router.get('/:learningId', learningsControllers.getLearningsById);
 
 router.get('/user/:uid', learningsControllers.getLearningByUserId);
+
+router.use(checkAuth),
 
 router.post(
     '/',

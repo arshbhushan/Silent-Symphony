@@ -137,7 +137,12 @@ export const updateLearning = async (req, res, next) => {
     const error = new HttpError(`Something went wrong, Could not update the Learning. ${err}`, 500);
     return next(error);
   }
-
+  if(learning.creator.toString() !== req.userData.userId){
+    const error=new HttpError('You are not allowed to edit this learning. ',
+    401
+    );
+    return next(error);
+  }
   // Update the learning instance
   learning.title = title;
   learning.description = description;
@@ -173,6 +178,14 @@ export const deleteLearning = async (req, res, next) => {
     const error = new HttpError('Could not find learning for this id. ', 404);
     return next(error);
   }
+
+  if(learning.creator.id !== req.userData.userId){
+    const error=new HttpError('You are not allowed to edit this learning. ',
+    401
+    );
+    return next(error);
+  }
+
     const imagePath=learning.image;
 
   try {

@@ -28,6 +28,10 @@ const LearningItem= props => {
         try {
         await sendRequest(`http://localhost:5555/api/learnings/${props.id}`,
         'DELETE',
+        null,
+        {
+            Authorization:'Bearer ' +auth.token
+        }
         );
         props.onDelete(props.id);   
         } catch (err) {}
