@@ -21,7 +21,6 @@ const Home = () => {
         </div>
       </div>
       <div>
-{/* <HorizontalScroller/> */}
       </div>
 </>
     );
