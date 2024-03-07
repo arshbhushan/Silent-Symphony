@@ -1,0 +1,58 @@
+.home-banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .home-banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .home-bannerImage-container {
+    position: absolute;
+    top: -100px;
+    right: -170px;
+    z-index: -2;
+    max-width: 700px;
+  }
+  
+  .home-image-section {
+    max-width: 600px;
+    flex: 1;
+  }
+  
+  .home-text-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px; /* Adjust the max-width based on your design */
+    width: 100%; /* Take up 100% width */
+    text-align: center; /* Center-align the text */
+  }
+  
+  .primary-heading {
+    font-size: clamp(3rem, 3vw, 2rem);
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto; /* Center the heading */
+    text-shadow:3px 3px 6px black; /* border to text*/
+  }
+  
+  .primary-text {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #6a6a6a;
+    margin: 1.5rem 0rem;
+  }
+  
+  
+  .feature-item {
+    min-width: 200px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
