@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import Home from './user/pages/Home.js';
 import './fingerSpelling/components/styles.css';
-//import Users from './user/pages/Users';
+import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import NewLearning from './learnings/pages/newLearning';
 import UpdateLearning from './learnings/pages/UpdateLearning.js';
@@ -12,7 +12,6 @@ import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
 import { useAuth } from './shared/hooks/auth-hook.js';
 
-
 const App = () => {
  const {token,login,logout,userId}=useAuth();
 
@@ -20,7 +19,9 @@ const App = () => {
   if (token) {
     routes = (
       <>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<>{<Home />}{<Users/>}</>} />
+      
+        {/* <Route path="/" element={<Users />} /> only to show users without home screen */}
         <Route path="/:userId/learnings" element={<UserLearnings />} />
         <Route path="/learnings/new" element={<NewLearning />} />
         <Route path="/learnings/:learningId" element={<UpdateLearning />} />
@@ -30,7 +31,9 @@ const App = () => {
   } else {
     routes = (
       <>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<> <Home/>  </>} />
+      
+        {/* <Route path="/" element={<>{<Home />}{<Users/>}</>} /> */}
         <Route path="/:userId/learnings" element={<UserLearnings />} />
         <Route path="/auth" element={<Auth />} />
       </>

@@ -1,0 +1,72 @@
+/* .horizontal-scroller-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px;
+  background-color: #f0f0f0;
+} */
+.horizontal-scroller-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+
+
+.scroller-content {
+  display: flex;
+  gap: 120px;
+}
+
+.feature-box {
+  margin: 30px;
+  margin-left: 120px;
+  width: 240px;
+  height: 200px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-top-left-radius:0; /* Set to 0 to remove the border */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  /* background-color: #2E600B; */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.998);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 50px;
+    height: 50px;
+    background-color: #F5F5F5;
+    border-radius: 150%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 970%;
+    border-bottom-left-radius: 50%;
+  }
+
+
+  .feature-wrapper {
+    margin: 0 10px; /* Adjust the margin as needed */
+  }
+
+}
+
+.feature-image {
+  max-width: 50%;
+  max-height: 50%;
+  object-fit: cover;
+  border-radius: 8px; /* Apply border-radius to the image */
+}
+
+.feature-text {
+  font-size: 1rem;
+  color: #ffffff;
+}
