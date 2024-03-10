@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './HorizontalScroller.css' // Import the CSS file
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const featuresData = [
   { feature: 'Off-Grid Power Generation', imageUrl: '/home_bg.jpg',color:'#2E600B' },

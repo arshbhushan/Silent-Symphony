@@ -31,7 +31,7 @@ const App = () => {
   } else {
     routes = (
       <>
-      <Route path="/" element={<> <Home/>  </>} />
+      <Route path="/" element={<> <Home/></>} />
       
         {/* <Route path="/" element={<>{<Home />}{<Users/>}</>} /> */}
         <Route path="/:userId/learnings" element={<UserLearnings />} />
@@ -57,6 +57,7 @@ const App = () => {
 
 
           </Routes>
+          
         </main>
       </Router>
     </AuthContext.Provider>

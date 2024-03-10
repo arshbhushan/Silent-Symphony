@@ -1,35 +1,28 @@
-/* .horizontal-scroller-container {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: 20px;
-  background-color: #f0f0f0;
-} */
 .horizontal-scroller-container {
-  overflow-x: auto;
+  
   white-space: nowrap;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #fef9f5;
 }
-
-
 
 .scroller-content {
   display: flex;
-  gap: 120px;
+  gap: 20px; /* Adjust the gap as needed */
+  justify-content: center;
+  align-items: center;
 }
 
 .feature-box {
-  margin: 30px;
-  margin-left: 120px;
+  margin: 10px; /* Adjust the margin as needed */
+  margin-left: 140px;
   width: 240px;
   height: 200px;
   padding: 15px;
   border: 1px solid #ccc;
-  border-top-left-radius:0; /* Set to 0 to remove the border */
+  border-top-left-radius: 0; /* Set to 0 to remove the border */
   border-top-right-radius: 30px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  /* background-color: #2E600B; */
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.998);
   display: flex;
   flex-direction: column;
@@ -52,16 +45,14 @@
     border-bottom-left-radius: 50%;
   }
 
-
   .feature-wrapper {
     margin: 0 10px; /* Adjust the margin as needed */
   }
-
 }
 
 .feature-image {
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 100%; /* Adjust the width as needed */
+  max-height: 100%; /* Adjust the height as needed */
   object-fit: cover;
   border-radius: 8px; /* Apply border-radius to the image */
 }
@@ -69,4 +60,29 @@
 .feature-text {
   font-size: 1rem;
   color: #ffffff;
+}
+
+/* Media queries for responsiveness based on the provided settings */
+@media screen and (max-width: 768px) {
+  .horizontal-scroller-container {
+    padding: 10px;
+  }
+
+  .scroller-content {
+    flex-direction: column;
+  }
+
+  .feature-box {
+    margin: 10px;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .feature-box {
+    width: 100%;
+    height: auto;
+  }
 }
