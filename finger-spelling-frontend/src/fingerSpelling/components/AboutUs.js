@@ -12,7 +12,10 @@ return (
 
       <div className="about-right-side">
         <h1>About Us</h1>
-        <p>welcome to our page. We will be teaching how to communicate with signs.</p>
+        <p>welcome to our page. We will be teaching how to communicate with signs.
+          we are  a group of students who have been passionate about   sign language since childhood and decided to make it.
+           
+        </p>
       </div>
     </div>
 );
