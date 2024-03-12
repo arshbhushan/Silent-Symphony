@@ -14,9 +14,15 @@
   margin: 0.5rem; /* Adjusted the margin for smaller gaps */
 }
 
+/* Add this import statement at the beginning of your CSS file to include the Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Rest of your existing CSS */
+
 .nav-links a,
-.dropdown button, /* Include the button here to share styles with other buttons */
+.dropdown button,
 .dropdown span {
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to these elements */
   border: 1px solid transparent;
   color: #292929;
   text-decoration: none;
@@ -25,13 +31,15 @@
   cursor: pointer;
 }
 
+/* Add the Montserrat font to other relevant elements as needed */
+
 .nav-links a:hover,
 .nav-links a:active,
 .nav-links a.active,
 .dropdown:hover span,
 .dropdown button:hover, /* Include the hover state for consistency */
 .dropdown button:active {
-  background: #f8df00;
+  /* background: #f8df00; */
   border-color: #292929;
   color: #292929;
 }
@@ -87,7 +95,7 @@
   .dropdown:hover .dropdown-content,
   .dropdown button:hover, /* Include the hover state for consistency */
   .dropdown button:active {
-    background: #f8df00;
+    /* background: #f8df00; */
     color: #292929;
   }
 }

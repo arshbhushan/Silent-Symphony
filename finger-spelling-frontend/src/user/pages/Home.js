@@ -1,8 +1,8 @@
 import React from 'react';
-import BannerBackground from './home_bg_two.jpg'
+// import BannerBackground from './home_bg_two.jpg'
 import Button from '../../shared/components/FormElements/Button.js'
-import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
-import About from '../../fingerSpelling/components/AboutUs.js';
+// import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
+// import About from '../../fingerSpelling/components/AboutUs.js';
 import './Home.css'
 
 
@@ -22,14 +22,16 @@ const Home = () => {
           </div>
         </div>
         <div className='home-image-section'>
-          <img src={BannerBackground} alt='' className='bg-image' />
+          {/* <img src={BannerBackground} alt='' className='bg-image' /> */}
+         <br />
+          <h1>image</h1>
         </div>
         
       </div>
       
     </div>
-    <div><HorizontalScroller/></div>
-    <div><About/></div>
+    {/* <div><HorizontalScroller/></div>
+    <div><About/></div> */}
     
     </>
   );
