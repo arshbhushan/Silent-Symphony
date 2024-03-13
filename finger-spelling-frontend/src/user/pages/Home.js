@@ -4,8 +4,8 @@ import Button from '../../shared/components/FormElements/Button.js'
 // import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
 // import About from '../../fingerSpelling/components/AboutUs.js';
 import './Home.css'
-
-
+import { Canvas } from '@react-three/fiber';
+import MyObjModel from '../../fingerSpelling/components/myModel.js';
 const Home = () => {
   return (
     <>
@@ -28,11 +28,18 @@ const Home = () => {
         </div>
         
       </div>
+
       
     </div>
     {/* <div><HorizontalScroller/></div>
     <div><About/></div> */}
-    
+    <div className='modelTD'>
+<Canvas>
+      <ambientLight />
+      <pointLight position={[100, 100, 100]} />
+      <MyObjModel />
+    </Canvas>
+    </div>
     </>
   );
 };
