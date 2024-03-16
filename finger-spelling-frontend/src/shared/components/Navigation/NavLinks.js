@@ -18,6 +18,7 @@ const NavLinks = () => {
           ALL USERS
         </NavLink>
       </li>
+      <p className='dot-inbetween'><h2>.</h2></p>
       {auth.isLoggedIn && (<li>
         <NavLink to="/learnings/new">ADD LEARNINGS
         
@@ -34,6 +35,7 @@ const NavLinks = () => {
           </div>
         )}
       </li>
+      <p className='dot-inbetween'><h2>.</h2></p>
      {!auth.isLoggedIn && ( <li>
         <NavLink to="/auth">AUTHENTICATE</NavLink>
       </li>)}

@@ -14,6 +14,11 @@
   margin: 0.5rem; /* Adjusted the margin for smaller gaps */
 }
 
+.dot-inbetween{
+  margin-bottom: 2%;
+  border-radius: 15px;
+}
+
 /* Add this import statement at the beginning of your CSS file to include the Montserrat font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -42,6 +47,7 @@
   /* background: #f8df00; */
   border-color: #292929;
   color: #292929;
+  border-radius: 5px;
 }
 
 .dropdown {

@@ -6,8 +6,8 @@
   background: transparent;
   border: none;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+   flex-direction: row;
+  justify-content: center;
   margin-right: 2rem;
   cursor: pointer;
 }
@@ -30,8 +30,9 @@
 }
 
 .main-navigation__header-nav {
-  display: none;
+  margin-right: 40%;
 }
+
 
 .main-navigation__drawer-nav {
   height: 100%;
