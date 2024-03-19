@@ -1,45 +1,52 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Brief from '../../fingerSpelling/components/Brief.js';
+// Your component code here
+
+// Inside your component's JSX
 // import BannerBackground from './home_bg_two.jpg'
 import Button from '../../shared/components/FormElements/Button.js'
 // import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
 // import About from '../../fingerSpelling/components/AboutUs.js';
 import './Home.css'
-import { Canvas } from '@react-three/fiber';
-import MyObjModel from '../../fingerSpelling/components/myModel.js';
+
 const Home = () => {
   return (
     <>
-    <div className='home-container'>
-      <div className='home-banner-container'>
-        <div className='home-text-section'>
-          <h2 className='primary-heading'>
-            Welcome to Silent Symphony
-          </h2>
-          <p className='sub-text'>Learn Sign Language now</p>
-          <div className='buttons'>
-         <Button>Get Started</Button> 
-          <Button>About Us</Button>
+      <div className='home-container'>
+        <div className='home-banner-container'>
+          <div className='home-text-section'>
+            <h2 className='primary-heading'>
+              Welcome to Silent Symphony
+            </h2>
+            <p className='sub-text'>Silent Symphony: Your Sign Language Companion. Learn to communicate effortlessly with the deaf and mute community. Dive into our intuitive lessons and empower yourself to connect with others through the universal language of signs.</p>
+            <div className='buttons'>
+              <Link to="/auth">
+                <Button>LOGIN</Button>
+              </Link>
+              <Link to="/auth">
+                <Button>SIGNUP</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className='home-image-section'>
-          {/* <img src={BannerBackground} alt='' className='bg-image' /> */}
-         <br />
-          <h1>image</h1>
-        </div>
-        
-      </div>
+          <div className='home-image-section'>
+            {/* <img src={BannerBackground} alt='' className='bg-image' /> */}
+            <br />
+            <h1>image</h1>
+          </div>
 
-      
-    </div>
-    {/* <div><HorizontalScroller/></div>
+        </div>
+
+
+      </div>
+      <div>
+      <Brief />
+      </div>
+      {/* <div><HorizontalScroller/></div>
     <div><About/></div> */}
-    <div className='modelTD'>
-<Canvas>
-      <ambientLight />
-      <pointLight position={[100, 100, 100]} />
-      <MyObjModel />
-    </Canvas>
-    </div>
+      <div className='modelTD'>
+
+      </div>
     </>
   );
 };

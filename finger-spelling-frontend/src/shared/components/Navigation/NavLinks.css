@@ -87,7 +87,7 @@
   .nav-links button,
   .dropdown button {
     /* border: 1px solid white; */
-    color: rgb(255, 255, 255);
+    color: black;
     background: transparent;
   }
 

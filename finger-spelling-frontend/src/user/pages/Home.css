@@ -22,9 +22,11 @@
 .primary-heading {
   font-size: clamp(3rem, 3vw, 2rem);
   color: #000000;
-  text-shadow: 3px 3px 6px black;
+  /* text-shadow: 2px 2px 4px black; */
   margin: 0;
+  align-self: flex-start; /* Align the heading to the start of the flex container */
 }
+
 
 .sub-text {
   font-size: 1.5rem; /* Adjust the font size as needed */
@@ -66,12 +68,12 @@
 } */
 
 
-.primary-heading {
+/* .primary-heading {
   font-size: clamp(3rem, 3vw, 2rem);
   color: #000000;
   text-shadow: 3px 3px 6px black;
   margin: 0;
-}
+} */
 .modelTD{
   margin-top: 20%;
   height: 100%;

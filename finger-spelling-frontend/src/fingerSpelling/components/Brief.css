@@ -1,0 +1,81 @@
+.brief-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fef9f5; /* Adjust background color as needed */
+  }
+  
+  .brief-left-side {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .rectangle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .rectangle {
+    width: 100px;
+    height: 50px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .rectangle1 {
+    width: 330px;
+    height: 330px;
+    border-radius: 8px;
+    background-color: #B7C9F2;
+  }
+  
+  .rectangle2 {
+    width: 330px;
+    height: 203px;
+    border-radius: 8px;
+    background-color:#191B24;
+
+  }
+  
+  .rectangle3 {
+    width: 215px;
+    height: 215px;
+    margin-top: -555px;
+    margin-left:350px;
+    margin-bottom: 500px;
+    border-radius: 8px;
+    background-color: #191B24;
+  }
+  
+  .rectangle4 {
+    width: 215px;
+    height: 320px;
+    margin-top: -490px;
+    margin-left:350px;
+    margin-bottom: 500px;
+    border-radius: 8px;
+    background-color: #B7C9F2;
+  }
+  
+  .circle {
+    width: 10px;
+    height: 10px;
+    background-color: #191B24;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  
+  .brief-right-side {
+    flex: 2;
+    margin-bottom: 150px;
+    margin-left: 30px;
+  }
+  
+  .brief-right-side h1 {
+    font-size: 2rem; /* Adjust font size as needed */
+    color: #333333; /* Adjust text color as needed */
+  }
