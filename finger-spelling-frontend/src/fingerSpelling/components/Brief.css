@@ -116,12 +116,18 @@
     left: 5px;
   }
 
-  .brief-heading{
+  .brief-heading {
     margin-top: 10px;
     height: 60px;
-    width: 340px;
-    margin-bottom: 10px;
+    width: 280px;
+    margin-bottom: 5px;
   }
+  
+  .custom-heading {
+    font-size: 34px; /* Adjust font size as needed */
+    font-weight:bolder; /* Adjust font weight as needed */
+  }
+  
   .brief-content{
     font-size: 16px;
     line-height: 24px;
@@ -131,11 +137,77 @@
   }
   .brief-right-side {
     flex: 2;
-    margin-bottom: 915px;
-    margin-left: 30px;
+    margin-bottom: 500px;
+    margin-left: 100px;
   }
   
   .brief-right-side h1 {
     font-size: 2rem; /* Adjust font size as needed */
     color: #333333; /* Adjust text color as needed */
   }
+  .button-container{
+    margin-top: 60px;
+    margin-left: 80px
+  }
+  .underline-text {
+    margin-left: 120px; /* Adjust margin as needed */
+    margin-top: -20px;
+  }
+  
+  .underline-text span {
+    text-decoration: underline;
+  }
+
+
+  /* For screens smaller than 768px (e.g., smartphones) */
+@media (max-width: 767px) {
+  .brief-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .brief-left-side {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .rectangle-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .rectangle {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  .brief-right-side {
+    margin-left: 0;
+  }
+
+  .button-container {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .underline-text {
+    margin: 0; /* Reset margin */
+  }
+}
+
+/* For screens larger than 768px (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+  .brief-right-side {
+    margin-left: 100px;
+  }
+
+  .button-container {
+    margin-top: 60px;
+    margin-left: 80px;
+  }
+
+  .underline-text {
+    margin-left: 120px;
+    margin-top: -20px;
+  }
+}

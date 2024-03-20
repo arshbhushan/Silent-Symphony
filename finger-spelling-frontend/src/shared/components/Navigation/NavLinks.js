@@ -15,7 +15,7 @@ const NavLinks = () => {
     <ul className="nav-links">
       <li>
         <NavLink to="/" exact>
-          ALL USERS
+          All Users
         </NavLink>
       </li>
       <p className='dot-inbetween'><h2>.</h2></p>
@@ -26,7 +26,7 @@ const NavLinks = () => {
       </li>)}
 
       <li className="dropdown">
-        <button onClick={handleDropdownClick}>ALL TECHNIQUES</button>
+        <button onClick={handleDropdownClick}>Techniques</button>
         {isDropdownOpen && (
           <div className="dropdown-content">
             <NavLink to="/finger-spelling">FingerLearning</NavLink>

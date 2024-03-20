@@ -43,12 +43,12 @@
 .nav-links a.active,
 .dropdown:hover span,
 .dropdown button:hover, /* Include the hover state for consistency */
-.dropdown button:active {
-  /* background: #f8df00; */
+/* .dropdown button:active {
+  /* background: #f8df00; 
   border-color: #292929;
   color: #292929;
   border-radius: 5px;
-}
+} */
 
 .dropdown {
   position: relative;
@@ -80,7 +80,7 @@
 
   .nav-links a,
   .dropdown span {
-    color: white;
+    color: black;
     text-decoration: none;
   }
 
@@ -92,7 +92,7 @@
   }
 
   .dropdown-content {
-    background-color: #292929;
+    background-color: #eaedff;
   }
 
   .nav-links a:hover,
@@ -102,7 +102,7 @@
   .dropdown button:hover, /* Include the hover state for consistency */
   .dropdown button:active {
     /* background: #f8df00; */
-    color: #292929;
+    color: #7a595d;
   }
 }
 
