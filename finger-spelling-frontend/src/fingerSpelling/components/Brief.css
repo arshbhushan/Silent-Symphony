@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #fef9f5; /* Adjust background color as needed */
+    background-color: #eaedff; /* Adjust background color as needed */
+    margin-bottom: -10%;
   }
   
   .brief-left-side {
@@ -114,10 +115,23 @@
     top: 5px;
     left: 5px;
   }
-  
+
+  .brief-heading{
+    margin-top: 10px;
+    height: 60px;
+    width: 340px;
+    margin-bottom: 10px;
+  }
+  .brief-content{
+    font-size: 16px;
+    line-height: 24px;
+    color:#4D5A6E;
+    margin-top: 25px;
+
+  }
   .brief-right-side {
     flex: 2;
-    margin-bottom: 150px;
+    margin-bottom: 915px;
     margin-left: 30px;
   }
   
