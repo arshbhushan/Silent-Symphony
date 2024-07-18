@@ -12,37 +12,41 @@ const Brief = () => {
           <div className="rectangle rectangle1">
             <div className="circle"></div>
             <div className="front">
-              <img src="/logo192.png" alt="Image 1" />
+              <img src="/rectangle1.jpg" alt="Image 1" />
             </div>
             <div className="back">
-              <p>Text for Rectangle 1</p>
+              <p><b>Sign Language Lessons:</b> Interactive and intuitive lessons to help users learn sign language,
+                 catering to various proficiency levels from beginners to advanced.</p>
             </div>
           </div>
           <div className="rectangle rectangle2">
             <div className="circle-co"></div>
             <div className="front">
-              <img src="/logo192.png" alt="Image 2" />
+              <img src="/rectangle2.jpg" alt="Image 2" />
             </div>
             <div className="back">
-              <p>Text for Rectangle 2</p>
+              <p><b>Community Engagement:</b> A platform for connecting with the deaf and mute community,
+                 offering forums, discussion groups, and opportunities to practice and communicate.</p>
             </div>
           </div>
           <div className="rectangle rectangle3">
             <div className="circle-co"></div>
             <div className="front">
-              <img src="/logo192.png" alt="Image 3" />
+              <img src="/rectangle3.jpg" alt="Image 3" />
             </div>
             <div className="back">
-              <p>Text for Rectangle 3</p>
+              <p><b>Real-time Practice Tools:</b> Tools and applications, such as a virtual interpreter or real-time feedback system,
+                 to practice and refine sign language skills in various real-world scenarios.</p>
             </div>
           </div>
           <div className="rectangle rectangle4">
             <div className="circle"></div>
             <div className="front">
-              <img src="/logo192.png" alt="Image 4" />
+              <img src="/rectangle4_1.jpg" alt="Image 4" />
             </div>
             <div className="back">
-              <p>Text for Rectangle 4</p>
+              <p>AI-Powered Sign Language Tutor: Leverage trained machine learning models to provide personalized sign 
+                language instruction, enabling users to learn and practice sign language with the guidance of an AI tutor.</p>
             </div>
           </div>
         </div>
