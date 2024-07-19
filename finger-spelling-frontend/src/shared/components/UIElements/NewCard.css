@@ -4,7 +4,7 @@
     gap: 100px; /* Adjust the gap between cards */
     padding: 20px; /* Add padding around the grid */
     background-color: #eaedff; /* Optional: background color for better visibility */
-    margin-top: -30%;
+    margin-top: -20%;
   }
   
   .card-item {
