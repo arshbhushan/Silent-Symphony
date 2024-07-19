@@ -5,38 +5,41 @@ import './NewCard.css'; // Import the CSS file for custom styles
 
 function NewCard() {
   return (
-    <div className="card-grid">
+    
+    <div title='welcome here' className="card-grid">
       <Card className="card-item">
         <Card.Img variant="top" src="home_bg.jpg" className="card-img" />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title><b>Sign Language Lessons</b></Card.Title>
+          <br></br>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          Learn sign language with our comprehensive lessons designed for all skill levels. 
+          Start communicating effectively with the deaf community today.
           </Card.Text>
           <Button className="custom-button">Go somewhere</Button>
         </Card.Body>
       </Card>
 
       <Card className="card-item">
-        <Card.Img variant="top" src="home_bg.jpg" className="card-img" />
+        <Card.Img variant="top" src="cardImage2.png" className="card-img" />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title><b>AI-Powered Translation</b></Card.Title>
+          <br></br>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          Experience our cutting-edge AI technology that translates sign language in real-time,
+          making communication seamless and accessible for everyone.
           </Card.Text>
           <Button className="custom-button">Go somewhere</Button>
         </Card.Body>
       </Card>
 
       <Card className="card-item">
-        <Card.Img variant="top" src="home_bg.jpg" className="card-img" />
+        <Card.Img variant="top" src="cardImage3.jpg" className="card-img" />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title><b>Community and Support</b></Card.Title>
+          <br></br>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          Join our supportive community of learners and experts. Share your experiences, ask questions, and grow together.
           </Card.Text>
           <Button className="custom-button">Go somewhere</Button>
         </Card.Body>

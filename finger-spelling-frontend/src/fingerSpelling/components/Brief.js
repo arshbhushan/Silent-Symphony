@@ -76,6 +76,7 @@ const Brief = () => {
       </div>
     </div>
       <div>
+        
       <NewCard/>
       </div>
       </>
