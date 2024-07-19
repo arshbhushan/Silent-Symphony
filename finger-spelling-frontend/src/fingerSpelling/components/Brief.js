@@ -2,10 +2,12 @@ import React from "react";
 import './Brief.css'
 import { Link } from 'react-router-dom';
 import Button from '../../shared/components/FormElements/Button';
+import NewCard from "../../shared/components/UIElements/NewCard.jsx";
 const Brief = () => {
 
 
   return (
+    <>
     <div className="brief-container">
       <div className="brief-left-side">
         <div className="rectangle-container">
@@ -73,6 +75,10 @@ const Brief = () => {
 
       </div>
     </div>
+      <div>
+      <NewCard/>
+      </div>
+      </>
   );
 };
 
