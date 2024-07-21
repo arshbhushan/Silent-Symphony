@@ -1,2 +1,0 @@
-testing a small git feature. 
-called git add . 
