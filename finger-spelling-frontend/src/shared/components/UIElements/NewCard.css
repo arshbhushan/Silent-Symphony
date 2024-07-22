@@ -1,39 +1,45 @@
+.grid-header {
+  text-align: center; /* Center the heading text */
+  font-size: 3rem; /* Adjust the font size to be more reasonable */
+  margin-top: -30%; /* Add space above the heading */
+  margin-bottom: 4px; /* Add more space below the heading to avoid overlap */
+  font-weight: bold; /* Make the text bold */
+  color: #333333; /* Adjust the text color */
+}
+
 .card-grid {
-    display: flex;
-    justify-content: center; /* Center the cards horizontally */
-    gap: 100px; /* Adjust the gap between cards */
-    padding: 20px; /* Add padding around the grid */
-    background-color: #eaedff; /* Optional: background color for better visibility */
-    margin-top: -20%;
-  }
-  
-  .card-item {
-    height: auto; /* Adjust the height as needed */
-    width: 18rem; /* Adjust the width as needed */
-  }
-  
-  .card-img {
-    height: 10rem; /* Set a fixed height for the image */
-    object-fit: cover; /* Ensure the image covers the area without stretching */
- 
-  }
-  
-  .card-body {
-    height: auto; /* Ensure the card body adjusts its height */
-  }
-  
-  .custom-button {
-    background-color: #ff0055; /* Change this to your desired background color */
-    border-radius: 10px; /* Adjust the border radius as needed */
-    border: none; /* Remove the default border */
-    color: white; /* Change the text color */
-    padding: 10px 20px; /* Adjust the padding */
-    font-size: 16px; /* Adjust the font size */
-    transition: background-color 0.3s ease; /* Add transition for background color */
-    margin-top: 2rem;
-  }
-  
-  .custom-button:hover {
-    background-color: #0056b3; /* Change this to your desired hover background color */
-  }
-  
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 100px; /* Adjust the gap between cards */
+  padding: 20px; /* Add padding around the grid */
+  background-color: #eaedff; /* Match the background color */
+}
+
+.card-item {
+  height: auto; /* Adjust the height as needed */
+  width: 18rem; /* Adjust the width as needed */
+}
+
+.card-img {
+  height: 15rem; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.card-body {
+  height: auto; /* Ensure the card body adjusts its height */
+}
+
+.custom-button {
+  background-color: #ff0055; /* Change this to your desired background color */
+  border-radius: 10px; /* Adjust the border radius as needed */
+  border: none; /* Remove the default border */
+  color: white; /* Change the text color */
+  padding: 10px 20px; /* Adjust the padding */
+  font-size: 16px; /* Adjust the font size */
+  transition: background-color 0.3s ease; /* Add transition for background color */
+  margin-top: 2rem; /* Add margin-top to separate the button from the content */
+}
+
+.custom-button:hover {
+  background-color: #0056b3; /* Change this to your desired hover background color */
+}
