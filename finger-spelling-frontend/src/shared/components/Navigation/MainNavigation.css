@@ -21,7 +21,7 @@
 
 .main-navigation__title {
   color: black;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Margot', sans-serif !important;
 }
 
 .main-navigation__title a {

@@ -5,13 +5,13 @@
   margin-bottom: 10px; /* Add more space below the heading to avoid overlap */
   font-weight: bold; /* Make the text bold */
   color: #333333; /* Adjust the text color */
-  font-family: 'Margot', sans-serif;
+  font-family: 'Margot', sans-serif !important;
 }
 
 .sub-heading-OfCards{
   text-align: center;
   color: #333333;
-  font-family: 'Margot', sans-serif;
+  font-family: 'Margot', sans-serif !important;
 }
 
 .card-grid {

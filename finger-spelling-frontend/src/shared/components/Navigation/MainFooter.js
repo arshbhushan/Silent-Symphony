@@ -14,11 +14,11 @@ function MainFooter() {
 					<a href="#contact">Contact</a>
 					<a href="#privacy">Privacy Policy</a>
 				</div>
-				<div className="footer-social">
+				{/* <div className="footer-social">
 					<a href="#facebook" className="social-link">Facebook</a>
 					<a href="#twitter" className="social-link">Twitter</a>
 					<a href="#instagram" className="social-link">Instagram</a>
-				</div>
+				</div> */}
 			</div>
 			<div className="footer-bottom">
 				<p>&copy; 2024 Silent Symphony. All Rights Reserved.</p>

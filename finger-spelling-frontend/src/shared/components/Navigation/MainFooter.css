@@ -1,6 +1,6 @@
 /* MainFooter.css */
 .footer-container {
-	background-color: #333;
+	background-color: #34495e;
 	color: #fff;
 	padding: 20px 0;
     margin-top: 0; /* Ensure no margin is causing extra space */
@@ -54,7 +54,7 @@
 }
 
 .footer-bottom {
-	background-color: #222;
+	background-color: white;
 	padding: 10px;
 	text-align: center;
 }
@@ -62,7 +62,7 @@
 .footer-bottom p {
 	margin: 0;
 	font-size: 14px;
-	color: #ccc;
+	color: black;
 }
 
 /* Additional CSS */

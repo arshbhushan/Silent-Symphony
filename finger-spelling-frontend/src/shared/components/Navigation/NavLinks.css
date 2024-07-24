@@ -30,7 +30,7 @@
 .nav-links a,
 .dropdown button,
 .dropdown span {
-  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to these elements */
+  font-family: 'Margot', sans-serif !important; /* Apply Montserrat font to these elements */
   font-weight: bold;
   border: 1px solid transparent;
   color: #292929;
@@ -51,7 +51,7 @@
 
 /* Dropdown Menu */
 .dropdown {
-  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to these elements */
+  font-family: 'Margot', sans-serif !important; /* Apply Montserrat font to these elements */
   font-weight: bold;
   border: 1px solid transparent;
   color: #292929;
