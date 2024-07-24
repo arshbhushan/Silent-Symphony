@@ -6,7 +6,10 @@ import './NewCard.css'; // Import the CSS file for custom styles
 function NewCard() {
   return (
     <>
-        <header className="grid-header">Welcome Here</header>
+        <header className="grid-header">Explore the World of Sign Language</header>
+        <div className='sub-heading-OfCards'>
+        <h3>Discover, Learn, and Connect: Your Journey to Sign Language Mastery and Community Integration</h3>
+        </div>
       <div className="card-grid">
         <div className="card-grid-heading">
         </div>
@@ -17,7 +20,7 @@ function NewCard() {
             <br></br>
             <Card.Text>
               Learn sign language with our comprehensive lessons designed for all skill levels.
-              Start communicating effectively with the deaf community today.
+              Communicate effectively with the deaf community.
             </Card.Text>
             <Button className="custom-button">Go somewhere</Button>
           </Card.Body>

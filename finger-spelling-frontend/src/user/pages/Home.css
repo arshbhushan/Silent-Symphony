@@ -21,6 +21,7 @@
 
 .primary-heading {
   font-size: clamp(3rem, 3vw, 2rem);
+  font-family: 'Margot', sans-serif !important;
   color: #000000;
   /* text-shadow: 2px 2px 4px black; */
   margin: 0;
