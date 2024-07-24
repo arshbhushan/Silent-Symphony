@@ -4,6 +4,7 @@ import Home from './user/pages/Home.js';
 import './fingerSpelling/components/styles.css';
 import Users from './user/pages/Users';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
+import MainFooter from './shared/components/Navigation/MainFooter.js';
 import NewLearning from './learnings/pages/newLearning';
 import UpdateLearning from './learnings/pages/UpdateLearning.js';
 import Auth from './user/pages/Auth.js';
@@ -48,8 +49,8 @@ const App = () => {
       logout: logout
     }}>
       <Router>
-        <MainNavigation />
         <main>
+        <MainNavigation />
           <Routes>
 
             {routes}
@@ -58,6 +59,7 @@ const App = () => {
           </Routes>
           
         </main>
+        <MainFooter/>
       </Router>
     </AuthContext.Provider>
   );

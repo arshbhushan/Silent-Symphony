@@ -47,9 +47,9 @@ const Home = () => {
       </div>
       {/* <div><HorizontalScroller/></div>
     <div><About/></div> */}
-      <div className='modelTD'>
+      {/* <div className='modelTD'>
 
-      </div>
+      </div> */}
     </>
   );
 };

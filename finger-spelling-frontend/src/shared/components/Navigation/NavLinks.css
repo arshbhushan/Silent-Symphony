@@ -28,6 +28,7 @@
 .dropdown button,
 .dropdown span {
   font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to these elements */
+  font-weight: bold;
   border: 1px solid transparent;
   color: #292929;
   text-decoration: none;
@@ -80,19 +81,19 @@
 
   .nav-links a,
   .dropdown span {
-    color: black;
+    color: white;
     text-decoration: none;
   }
 
   .nav-links button,
   .dropdown button {
     /* border: 1px solid white; */
-    color: black;
+    color: white;
     background: transparent;
   }
 
   .dropdown-content {
-    background-color: #eaedff;
+    background-color: #34495e;
   }
 
   .nav-links a:hover,
@@ -102,7 +103,7 @@
   .dropdown button:hover, /* Include the hover state for consistency */
   .dropdown button:active {
     /* background: #f8df00; */
-    color: #7a595d;
+    color: grey;
   }
 }
 
