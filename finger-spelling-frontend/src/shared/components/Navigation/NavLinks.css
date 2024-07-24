@@ -2,21 +2,24 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-around; /* Distribute space evenly */
+  align-items: center;
   width: 100%;
   height: 100%;
+}
+.nav-links li {
+  margin: 0 1rem; /* Adjust this value to increase/decrease the space */
+}
+.nav-links li {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.nav-links li {
-  margin: 0.5rem; /* Adjusted the margin for smaller gaps */
-}
-
-.dot-inbetween{
-  margin-bottom: 2%;
-  border-radius: 15px;
+.dot-inbetween {
+  margin-bottom: 0; /* Reset any additional margin-bottom */
+  margin-right: 5rem;
+  margin-left: 2rem;
 }
 
 /* Add this import statement at the beginning of your CSS file to include the Montserrat font */
@@ -37,24 +40,27 @@
   cursor: pointer;
 }
 
-/* Add the Montserrat font to other relevant elements as needed */
-
+/* Hover and Active States */
 .nav-links a:hover,
 .nav-links a:active,
 .nav-links a.active,
 .dropdown:hover span,
-.dropdown button:hover, /* Include the hover state for consistency */
-/* .dropdown button:active {
-  /* background: #f8df00; 
-  border-color: #292929;
-  color: #292929;
-  border-radius: 5px;
-} */
-
-.dropdown {
-  position: relative;
+.dropdown button:hover {
+  color: white; /* Highlight color on hover */
 }
 
+/* Dropdown Menu */
+.dropdown {
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to these elements */
+  font-weight: bold;
+  border: 1px solid transparent;
+  color: #292929;
+  text-decoration: none;
+  padding: 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
 
 .dropdown-content {
   display: none;
@@ -70,24 +76,23 @@
   display: block;
 }
 
+/* Media Queries */
 @media (min-width: 768px) {
   .nav-links {
-    flex-direction: row;
+    flex-direction: row; /* Arrange links in a row on larger screens */
   }
 
   .nav-links li {
-    margin: 0 0.5rem; /* Adjusted the margin for smaller gaps */
+    margin: 0 1rem; /* Space between links */
   }
 
   .nav-links a,
   .dropdown span {
-    color: white;
-    text-decoration: none;
+    color: white; /* Assuming dark background */
   }
 
   .nav-links button,
   .dropdown button {
-    /* border: 1px solid white; */
     color: white;
     background: transparent;
   }
@@ -100,16 +105,7 @@
   .nav-links a:active,
   .dropdown:hover span,
   .dropdown:hover .dropdown-content,
-  .dropdown button:hover, /* Include the hover state for consistency */
-  .dropdown button:active {
-    /* background: #f8df00; */
+  .dropdown button:hover {
     color: grey;
   }
 }
-
-
-
-
-
-/* .dropdown button {
-  margin-top: 0.5rem; /* Adjusted the margin-top for vertical alignment */ 
