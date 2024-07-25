@@ -52,7 +52,9 @@
 .bg-image {
   width: 130%;
   height: 100%;
+  margin-right: 15%;
   object-fit: cover;
+  overflow: hidden;
   border-radius: 5%;
 }
 

@@ -6,6 +6,8 @@
   background-color: #eaedff;
   /* Adjust background color as needed */
   margin-bottom: -10%;
+  margin-right: 10%;
+  text-overflow: hidden;
   
 }
 
@@ -159,16 +161,15 @@
 }
 
 .brief-right-side h1 {
-  font-size: 4rem;
-  /* Adjust font size as needed */
-
-  color: #333333;
-  /* Adjust text color as needed */
+  font-size: 2rem; /* Adjust font size as needed */
+  color: #333333; /* Adjust text color as needed */
   font-family: 'Margot', sans-serif !important;
-  white-space: nowrap; /* Prevent line break */
-; /* Hide overflowing text if necessary */
-  text-overflow: ellipsis; /* 
+  white-space: nowrap; /* Prevent line breaks */
+  /* text-overflow: ellipsis;  */
+  /* Add ellipsis (...) for overflowing text */
+  max-width: 100%; /* Ensure the text container doesn't exceed the width of its parent */
 }
+
 
 .button-container {
   margin-top: 60px;
@@ -341,11 +342,11 @@
     /* Adjust font size as needed */
     color: #333333;
     /* Adjust text color as needed */
-    white-space: nowrap;
+    
     /* Prevent line break */
     overflow: hidden;
     /* Hide overflowing text if necessary */
-    text-overflow: ellipsis;
+  
     /* 
     }
     .button-container{
@@ -362,4 +363,78 @@
     text-decoration: underline;
   }
 
+  @media (max-width: 768px) {
+    .brief-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .brief-left-side, .brief-right-side {
+      margin-left: 0;
+      margin-right: 0;
+      min-width: 100%;
+    }
+  
+    .rectangle {
+      width: 60px;
+      height: 30px;
+    }
+  
+    .rectangle1, .rectangle2 {
+      width: 130px;
+      height: auto;
+    }
+  
+    .rectangle3, .rectangle4 {
+      width: 115px;
+      height: auto;
+      margin: 20px 0;
+    }
+  
+    .brief-right-side {
+      margin-top: 20px;
+    }
+  
+    .custom-heading {
+      font-size: 24px;
+    }
+  
+    .brief-content {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  
+    .brief-right-side h1 {
+      ffont-size: 2rem;
+      /* Adjust font size as needed */
+      color: #333333;
+      /* Adjust text color as needed */
+      
+      /* Prevent line break */
+      overflow: hidden;
+      /* Hide overflowing text if necessary */
+    
+      /* 
+      }
+      .button-container{
+        margin-top: 20px;
+        margin-left: 0px
+      }
+      .underline-text {
+        margin-left: 100px; /* Adjust margin as needed */
+      margin-top: -20px;
+      color: #4D5A6E;
+      
+    }
+  
+    .button-container {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  
+    .underline-text {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
 }

@@ -4,7 +4,7 @@ import Brief from '../../fingerSpelling/components/Brief.js';
 // Your component code here
 
 // Inside your component's JSX
-import BannerBackground from './image.png';
+//import BannerBackground from './image.png';
 import Button from '../../shared/components/FormElements/Button.js'
 // import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
 // import About from '../../fingerSpelling/components/AboutUs.js';
@@ -34,7 +34,7 @@ const Home = () => {
             </div>
           </div>
           <div className='home-image-section'>
-            <img src={BannerBackground} alt='' className='bg-image' />
+            {/* <img src={BannerBackground} alt='' className='bg-image' /> */}
             <br />
           </div>
 

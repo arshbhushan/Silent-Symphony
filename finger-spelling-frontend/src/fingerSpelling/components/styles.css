@@ -9,6 +9,7 @@ body, h1, p {
   /* Set a global font family */
   body {
     font-family: 'Margot', sans-serif !important;
+    background-color: #EAEDFF;
   }
   
   /* Style the container of your React component */
