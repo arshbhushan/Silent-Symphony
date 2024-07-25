@@ -179,7 +179,8 @@
 .underline-text {
   margin-left: 120px;
   /* Adjust margin as needed */
-  margin-top: -20px;
+  margin-top: -50px;
+  white-space: nowrap;
 }
 
 .underline-text span {
@@ -187,25 +188,19 @@
 }
 
 @media (max-width: 768px) {
-  .brief-right-side {
-    margin-left: 100px;
-  }
-
-  .button-container {
-    margin-top: 60px;
-    margin-left: 80px;
-  }
-
   .rectangle-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between; /* Distribute space evenly between rectangles */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    margin: 20px;
     align-items: flex-start;
   }
 
   .rectangle {
-    width: 60px;
-    height: 30px;
-    margin-bottom: 10px;
+    width: 130px; /* Set a consistent width for all rectangles */
+    height: 130px; /* Set a consistent height for all rectangles */
+    margin-bottom: 20px; /* Add space between rows if wrapping occurs */
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
@@ -217,6 +212,7 @@
 
   .front,
   .back {
+    
     width: 100%;
     height: 100%;
     position: absolute;
@@ -245,41 +241,26 @@
     color: #fff;
   }
 
+  .rectangle1,
+  .rectangle2,
+  .rectangle3,
+  .rectangle4 {
+    border-radius: 8px;
+  }
 
   .rectangle1 {
-    width: 130px;
-    height: 130px;
-    border-radius: 8px;
     background-color: #B7C9F2;
   }
 
-  .rectangle2 {
-    width: 130px;
-    height: 100px;
-    border-radius: 8px;
-    background-color: #191B24;
-
-  }
-
+  .rectangle2,
   .rectangle3 {
-    width: 115px;
-    height: 115px;
-    margin-top: -250px;
-    margin-left: 140px;
-    margin-bottom: 500px;
-    border-radius: 8px;
     background-color: #191B24;
   }
 
   .rectangle4 {
-    width: 115px;
-    height: 120px;
-    margin-top: -495px;
-    margin-left: 140px;
-    margin-bottom: 500px;
-    border-radius: 8px;
     background-color: #B7C9F2;
   }
+
 
   .circle {
     width: 10px;
@@ -320,6 +301,7 @@
     /* Adjust font size as needed */
     font-weight: bolder;
     /* Adjust font weight as needed */
+    margin-bottom: -10px;
   }
 
   .brief-content {
@@ -344,7 +326,7 @@
     /* Adjust text color as needed */
     
     /* Prevent line break */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* Hide overflowing text if necessary */
   
     /* 
@@ -355,14 +337,22 @@
     }
     .underline-text {
       margin-left: 100px; /* Adjust margin as needed */
+      .underline-text{
+        margin-left:100px;
     margin-top: -20px;
+    margin-left: 50px;
     color: #4D5A6E;
   }
-
+  .underline-text {
+    margin-left: 10px;
+    /* Adjust margin as needed */
+    margin-top: -50px;
+    white-space: normal;
+  }
   .underline-text span {
     text-decoration: underline;
   }
-
+  }
   @media (max-width: 768px) {
     .brief-container {
       flex-direction: column;
@@ -382,13 +372,14 @@
   
     .rectangle1, .rectangle2 {
       width: 130px;
-      height: auto;
+      height: 100px;
+      margin: 30px 0;
     }
   
     .rectangle3, .rectangle4 {
-      width: 115px;
-      height: auto;
-      margin: 20px 0;
+      width: 130px;
+      height: 100px;
+      margin: 30px 0;
     }
   
     .brief-right-side {
@@ -397,33 +388,32 @@
   
     .custom-heading {
       font-size: 24px;
+      margin-bottom: -20px;
     }
   
     .brief-content {
       font-size: 14px;
       line-height: 24px;
+      margin-top: -30px;
+
     }
   
     .brief-right-side h1 {
-      ffont-size: 2rem;
+      font-size: 1rem;
       /* Adjust font size as needed */
       color: #333333;
       /* Adjust text color as needed */
-      
-      /* Prevent line break */
-      overflow: hidden;
-      /* Hide overflowing text if necessary */
-    
-      /* 
-      }
+      margin-top: 100px;
+      margin-left: 0px;
+      color: #4D5A6E;
+
+    }
       .button-container{
         margin-top: 20px;
         margin-left: 0px
       }
       .underline-text {
-        margin-left: 100px; /* Adjust margin as needed */
-      margin-top: -20px;
-      color: #4D5A6E;
+        margin-left: 50px; /* Adjust margin as needed */
       
     }
   
@@ -434,7 +424,13 @@
   
     .underline-text {
       margin-left: 0;
-      text-align: center;
+      text-align: left;
+    }
+    .underline-text {
+      margin-left: 120px;
+      /* Adjust margin as needed */
+      margin-top: -50px;
+      white-space: normal;
     }
   }
 }
