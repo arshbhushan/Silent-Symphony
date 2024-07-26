@@ -236,7 +236,7 @@
   }
 
   .rectangle p {
-    font-size: 14px;
+    font-size: 9px;
     padding: 10px;
     color: #fff;
   }
@@ -362,6 +362,7 @@
     .brief-left-side, .brief-right-side {
       margin-left: 0;
       margin-right: 0;
+      margin-top:13rem ;
       min-width: 100%;
     }
   
@@ -374,6 +375,7 @@
       width: 130px;
       height: 100px;
       margin: 30px 0;
+      
     }
   
     .rectangle3, .rectangle4 {

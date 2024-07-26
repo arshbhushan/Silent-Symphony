@@ -17,7 +17,7 @@ const Home = () => {
         <div className='home-banner-container'>
           <div className='home-text-section'>
             <h2 className='primary-heading'>
-              <b>Silent Symphony:</b> 
+              <b>Silent Symphony</b> 
             </h2>
             <br></br>
             <p className='sub-text'>
