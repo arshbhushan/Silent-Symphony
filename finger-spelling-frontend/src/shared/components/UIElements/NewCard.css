@@ -7,13 +7,13 @@
   margin-top: -20%; /* Add space above the heading */
   margin-bottom: 10px; /* Add more space below the heading to avoid overlap */
   font-weight: bold; /* Make the text bold */
-  color: #333333; /* Adjust the text color */
+  color: #4D5A6E; /* Adjust the text color */
   font-family: 'Margot', sans-serif !important;
 }
 
 .sub-heading-OfCards{
   text-align: center;
-  color: #333333;
+  color: #4D5A6E;
   font-family: 'Margot', sans-serif !important;
 }
 
@@ -68,7 +68,12 @@
     margin-top: 0; /* Add space above the heading */
     margin-bottom: 10px; /* Add more space below the heading to avoid overlap */
     font-weight: bold; /* Make the text bold */
-    color: #333333; /* Adjust the text color */
+    color: #4D5A6E; /* Adjust the text color */
+    font-family: 'Margot', sans-serif !important;
+  }
+  .sub-heading-OfCards{
+    text-align: center;
+    color: #4D5A6E;
     font-family: 'Margot', sans-serif !important;
   } 
   .card-grid {
@@ -79,15 +84,35 @@
     flex-direction: column;
     align-items: center;
 } 
+.carousel-item {
+  display: flex;
+  justify-content: flex-start; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 200px; /* Adjust as needed */
+}
+.carousel-caption{
+  color:#4D5A6E;
+}
+.carousel-item img {
+  max-height: 90%; /* Ensure images don't exceed the carousel item height */
+  width: auto; /* Maintain aspect ratio */
+  padding: 20px;
+}
+
 .mobile-carousel {
   display: block;
-}
-.carousel .carousel-item img {
-  max-height: 200px; /* Adjust max-height for smaller screens */
 }
 
 .card-grid {
   display: none; /* Optionally hide other content */
+}
+.carousel-indicators {
+  display: none !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  display: none !important;
 }
 
 }

@@ -123,7 +123,7 @@
   align-self: flex-start; /* Align the heading to the start of the flex container */
 }
 .sub-text {
-  font-size: 1.3rem; /* Adjust the font size as needed */
+  font-size: 1.2rem; /* Adjust the font size as needed */
   color: #555555; /* Adjust the color as needed */
   margin-top: 5px; /* Add spacing between heading and subtext */
   text-align: center;
