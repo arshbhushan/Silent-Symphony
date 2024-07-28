@@ -195,6 +195,7 @@
     flex-wrap: wrap; /* Allow wrapping to the next line if needed */
     margin: 20px;
     align-items: flex-start;
+    margin-top: 15rem;
   }
 
   .rectangle {

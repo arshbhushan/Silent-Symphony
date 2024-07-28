@@ -52,3 +52,15 @@
   background-color: #0056b3; /* Change this to your desired hover background color */
 }
 
+@media (max-width: 768px) {
+  .grid-header {
+    text-align: center; /* Center the heading text */
+    font-size: 3rem; /* Adjust the font size to be more reasonable */
+    margin-top: -50%; /* Add space above the heading */
+    margin-bottom: 10px; /* Add more space below the heading to avoid overlap */
+    font-weight: bold; /* Make the text bold */
+    color: #333333; /* Adjust the text color */
+    font-family: 'Margot', sans-serif !important;
+  }  
+
+}

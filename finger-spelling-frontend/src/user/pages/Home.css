@@ -1,6 +1,6 @@
 .home-container {
   display: flex;
-  height: 100vh;
+  height: 80vh;
   background-color: #EAEDFF;
   margin-top: -2%;
 }
@@ -16,7 +16,7 @@
   flex-direction: column; /* Added to stack elements vertically */
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .primary-heading {
@@ -98,12 +98,22 @@
 
   .home-container {
     display: flex;
-    height: 100vh;
+    height: 20vh;
     background-color: #EAEDFF;
     margin-top: 10px;
   }
+  .home-text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Added to stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20rem;
+    
+  }
   .primary-heading {
-    padding-top: 18rem;
+    /* padding-top: 18rem; */
   font-size: clamp(2.5rem, 3vw, 2rem);
   font-family: 'Margot', sans-serif !important;
   color: #000000;
