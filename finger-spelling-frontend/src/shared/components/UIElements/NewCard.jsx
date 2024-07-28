@@ -6,6 +6,7 @@ import './NewCard.css'; // Import the CSS file for custom styles
 function NewCard() {
   return (
     <>
+    <div className='newCards-container'>
         <header className="grid-header">Explore the World of Sign Language</header>
         <div className='sub-heading-OfCards'>
         <h3>Discover, Learn, and Connect: Your Journey to Sign Language Mastery and Community Integration</h3>
@@ -50,6 +51,7 @@ function NewCard() {
             <Button className="custom-button">Go somewhere</Button>
           </Card.Body>
         </Card>
+      </div>
       </div>
     </>
   );

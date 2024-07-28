@@ -172,8 +172,8 @@
 
 
 .button-container {
-  margin-top: 60px;
-  margin-left: 80px
+  margin-top: 40px;
+  margin-left: 0px;
 }
 
 .underline-text {
@@ -358,6 +358,7 @@
     .brief-container {
       flex-direction: column;
       align-items: flex-start;
+      height: 105vh;
     }
   
     .brief-left-side, .brief-right-side {
@@ -402,7 +403,7 @@
     }
   
     .brief-right-side h1 {
-      font-size: 1rem;
+      font-size: 1.5rem;
       /* Adjust font size as needed */
       color: #333333;
       /* Adjust text color as needed */
