@@ -4,3 +4,5 @@ backend/uploads
 frontend/node_modules
 VideoCallFeature/node_modules
 VideoCallFeature/node_modules/.bin
+VideoCallFeature/client/node_modules
+VideoCallFeature/client/node_modules/.bin
