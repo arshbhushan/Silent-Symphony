@@ -2,3 +2,5 @@ backend/node_modules
 backend/config.js
 backend/uploads
 frontend/node_modules
+VideoCallFeature/node_modules
+VideoCallFeature/node_modules/.bin
