@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: silentsymphonybackend
+    ports:
+      - "5556:5555"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: /usr/src/app/node_modules/.bin/nodemon app.js
+    depends_on:
+      - mongo
+    env_file: ./backend/.env
+    environment:
+      - PORT=5555
+      - MONGODB_URL=${MONGODB_URL}
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo
+    volumes:
+      - data-volume:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./finger-spelling-frontend
+    container_name: finger-spelling-frontend
+    command: npm start
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  data-volume:
+    driver: local
