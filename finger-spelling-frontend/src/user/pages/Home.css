@@ -36,14 +36,14 @@
 }
 
 .home-image-section {
-  height: 500px;
-  width: 350px;
+  height: 400px;
+  width: 450px;
   margin-top: -10%;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
   background-color: #555;
-  margin: 8%;
+  margin: 4%;
   border-radius:12%;
   
   /* overflow: hidden; */
