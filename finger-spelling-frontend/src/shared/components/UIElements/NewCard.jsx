@@ -29,7 +29,9 @@ function NewCard() {
                 Learn sign language with our comprehensive lessons designed for all skill levels.
                 Communicate effectively with the deaf community.
               </Card.Text>
-              <Button className="custom-button">Go somewhere</Button>
+              <a href="http://localhost:3004/" target="_blank" rel="noopener noreferrer">
+                <Button className="custom-button">Call Now</Button>
+              </a>
             </Card.Body>
           </Card>
 
