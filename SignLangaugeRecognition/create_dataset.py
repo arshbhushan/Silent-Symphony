@@ -1,10 +1,7 @@
 import os
-
 import mediapipe as mp
 import pickle
 import cv2
-import matplotlib.pyplot as plt
-
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -45,6 +42,8 @@ for dir_ in os.listdir(DATA_DIR):
             data.append(data_aux)
             labels.append(dir_)
 
-f = open('data.pickle', 'wb')
-pickle.dump({'data': data, 'labels': labels}, f)
-f.close()
+if data and labels:
+    with open('data.pickle', 'wb') as f:
+        pickle.dump({'data': data, 'labels': labels}, f)
+else:
+    print("No data to save!")
