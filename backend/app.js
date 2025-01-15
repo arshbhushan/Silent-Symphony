@@ -10,9 +10,8 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import learningsRouters from "./routes/learnings-routes.js";
 import usersRouters from "./routes/usersRoutes.js";
+import assignRoleRoutes from "./routes/assignRole-routes.js"
 import { log } from "console";
-
-
 const app = express();
 
 
@@ -48,7 +47,9 @@ app.use(bodyParser.json());
 app.use('/finger-spelling',learningsRouters);
 app.use('/api/learnings',learningsRouters);
 app.use('/api/users',usersRouters);
+app.use('/api/assign-role', assignRoleRoutes);
 
+//router.post('/assign-role', checkAdmin, assignRole);
 app.use((req,res,next)=>{
   const error= new HttpError(`Could not find this route `,404);
   throw error;
