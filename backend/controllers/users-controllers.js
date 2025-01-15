@@ -58,7 +58,7 @@ export const signup = async (req, res, next) => {
     const createdUser = new userModule({
         name,
         email,
-        image:req.file.path, // basically this means this fetches the images here 'http://localhost:5555'+req.file.path
+        image: req.file ? req.file.path : null, // basically this means this fetches the images here 'http://localhost:5555'+req.file.path
         password:hashedPassword,
         learnings:[]
     });
@@ -76,7 +76,9 @@ export const signup = async (req, res, next) => {
     try {
         token=jwt.sign({
             userId:createdUser.id,
-            email:createdUser.email},
+            email:createdUser.email,
+            roles:createdUser.roles
+        },
             'supersecret_dont_share',
             {expiresIn:'3h'});
     } catch (err) {
@@ -134,7 +136,9 @@ export const login= async(req, res, next) => {
     try {
         token=jwt.sign({
             userId:existingUser.id,
-            email:existingUser.email},
+            email:existingUser.email,
+            roles:existingUser.roles
+        },
             'supersecret_dont_share',
             {expiresIn:'3h'});
     } catch (err) {
