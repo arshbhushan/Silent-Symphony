@@ -19,8 +19,9 @@ const App = () => {
   if (token) {
     routes = (
       <>
-      <Route path="/" element={<>{<Home />}{<Users/>}</>} />
-      
+      <Route path="/" element={<Home />}/>
+      <Route path="/all-users" element={<Users/>} />
+  
         {/* <Route path="/" element={<Users />} /> only to show users without home screen */}
         <Route path="/:userId/learnings" element={<UserLearnings />} />
         <Route path="/learnings/new" element={<NewLearning />} />
