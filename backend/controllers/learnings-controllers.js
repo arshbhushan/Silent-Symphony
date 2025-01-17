@@ -59,59 +59,59 @@ export const getLearningByUserId = async (req, res, next) => {
 };
 
 export const createLearning = async (req, res, next) => {
-
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log(errors);
-    return next(new HttpError('Invalid inputs passed, please check your data.', 422)
-    );
-
+    return next(new HttpError('Invalid inputs passed, please check your data.', 422));
   }
 
-  const { title, description} = req.body;
+  const { title, description } = req.body;
 
   const createdLearning = new learningsModule({
     title,
     description,
-    image: req.file.path ,
+    image: req.file.path,
     creator: req.userData.userId,
   });
 
   let user;
   try {
+    // Find the user by ID
     user = await userModule.findById(req.userData.userId);
   } catch (err) {
     console.error('Error during Login: ', err);
-    const error = new HttpError('Creating learning failed, Please try again. ',
-      500);
+    const error = new HttpError('Creating learning failed, please try again.', 500);
     return next(error);
   }
-  console.log(user);
 
   if (!user) {
-    const error = new HttpError('Could not find user for the provided Id', 404);
+    const error = new HttpError('Could not find user for the provided ID.', 404);
+    return next(error);
+  }
+
+  // Check if the user has the ADMIN role
+  if (!user.roles || !user.roles.includes('ADMIN')) {
+    const error = new HttpError('You are not authorized to create new learnings.', 403);
     return next(error);
   }
 
   try {
-
+    // Start a session for atomic operations
     const sess = await mongoose.startSession();
     sess.startTransaction();
     await createdLearning.save({ session: sess });
     user.learnings.push(createdLearning);
     await user.save({ session: sess });
     await sess.commitTransaction();
-
   } catch (err) {
-    console.error('Error during Login: ', err);
-    const error = new HttpError(
-      `creating learning failed, please try again. ${err}`, 500
-    );
+    console.error('Error during learning creation: ', err);
+    const error = new HttpError(`Creating learning failed, please try again. ${err}`, 500);
     return next(error);
   }
 
   res.status(201).json({ learning: createdLearning });
 };
+
 
 export const updateLearning = async (req, res, next) => {
   console.log(req.body); // Add this line to log the request body
@@ -120,7 +120,7 @@ export const updateLearning = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log(errors);
-    return next(new HttpError("Invalid inputs passed, plese check your data.", 422));
+    return next(new HttpError("Invalid inputs passed, please check your data.", 422));
 
   }
 
