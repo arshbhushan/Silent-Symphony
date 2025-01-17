@@ -58,7 +58,7 @@ export const signup = async (req, res, next) => {
     const createdUser = new userModule({
         name,
         email,
-        image: req.file ? req.file.path : null, // basically this means this fetches the images here 'http://localhost:5555'+req.file.path
+        image:req.file.path, // basically this means this fetches the images here 'http://localhost:5555'+req.file.path
         password:hashedPassword,
         learnings:[]
     });
