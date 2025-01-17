@@ -2,7 +2,7 @@
 
 /* Reset some default styles for consistency */
 body, h1, p {
-    margin: 0;
+    margin: 15px;
     padding: 0;
   }
   
