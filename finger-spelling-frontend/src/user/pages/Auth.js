@@ -9,25 +9,24 @@ import { useForm } from "../../shared/hooks/form-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal.js";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner.js";
 import { useHttpClient } from "../../shared/hooks/http-hook.js";
-import './Auth.css';
+import "./Auth.css";
 
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [showPopup, setShowPopup] = useState(false); // Popup visibility state
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
-
 
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
-        value: '',
-        isValid: false
+        value: "",
+        isValid: false,
       },
       password: {
-        value: '',
-        isValid: false
-      }
+        value: "",
+        isValid: false,
+      },
     },
     false
   );
@@ -38,7 +37,7 @@ const Auth = () => {
         {
           ...formState.inputs,
           name: undefined,
-          image: undefined
+          image: undefined,
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
       );
@@ -47,92 +46,96 @@ const Auth = () => {
         {
           ...formState.inputs,
           name: {
-            value: '',
-            isValid: false
+            value: "",
+            isValid: false,
           },
           image: {
-            value:null,
-            isValid: false
-          }
+            value: null,
+            isValid: false,
+          },
         },
         false
       );
     }
-    setIsLoginMode(prevMode => !prevMode);
+    setIsLoginMode((prevMode) => !prevMode);
   };
-  const authSubmitHandler = async event => {
+
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
     if (isLoginMode) {
       try {
-        const responseData=await sendRequest(
-          'http://localhost:5555/api/users/login',
-          'POST',
+        const responseData = await sendRequest(
+          "http://localhost:5555/api/users/login",
+          "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
-            password: formState.inputs.password.value
+            password: formState.inputs.password.value,
           }),
           {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.userId,responseData.token);
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {}
- 
     } else {
       try {
         const formData = new FormData();
-        formData.append('email', formState.inputs.email.value);
-        formData.append('name', formState.inputs.name.value);
-        formData.append('password', formState.inputs.password.value);
-        formData.append('image', formState.inputs.image.value); // Fix: use `append` instead of `image`
-      
+        formData.append("email", formState.inputs.email.value);
+        formData.append("name", formState.inputs.name.value);
+        formData.append("password", formState.inputs.password.value);
+        formData.append("image", formState.inputs.image.value);
+
         const responseData = await sendRequest(
-          'http://localhost:5555/api/users/signup',
-          'POST',
+          "http://localhost:5555/api/users/signup",
+          "POST",
           formData
-          //alternate of formData. WE USE FORM DATA BECAUSE IT CAN ADD FILES TOO.
-          // JSON.stringify({
-          //   name: formState.inputs.name.value,
-          //   email: formState.inputs.email.value,
-          //   password: formState.inputs.password.value
-          // }),
-          //WITH THE HELP OF formData IT AUTOMATICALLY SENDS THE HEADERS AS WELL. 
-          // {
-          //   'Content-Type': 'application/json'
-          // }
         );
-        auth.login(responseData.userId);
-      } catch (err) {
-      }
+        setShowPopup(true); // Show popup on successful signup
+      } catch (err) {}
     }
   };
 
+  const closePopupHandler = () => {
+    setShowPopup(false);
+    setIsLoginMode(true); // Redirect to login mode
+  };
 
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Signup Successful!</h2>
+            <p>You have successfully signed up. Please log in to continue.</p>
+            <Button onClick={closePopupHandler}>Go to Login</Button>
+          </div>
+        </div>
+      )}
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
         <h2>Login Required</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
-          <Input
-            element="input"
-            id="name"
-            type="text"
-            label="Your Name"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please input a Name. "
-            onInput={inputHandler}
-          />)}
-          {!isLoginMode &&( 
-          <ImageUpload 
-          center 
-          id="image" 
-          onInput={inputHandler}
-          errorText="Please provide an image."
-          />)}
+            <Input
+              element="input"
+              id="name"
+              type="text"
+              label="Your Name"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please input a Name. "
+              onInput={inputHandler}
+            />
+          )}
+          {!isLoginMode && (
+            <ImageUpload
+              center
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+          )}
           <Input
             element="input"
             id="email"
@@ -152,13 +155,12 @@ const Auth = () => {
             onInput={inputHandler}
           />
           <Button type="submit" disabled={!formState.isValid}>
-            {isLoginMode ? 'LOGIN' : 'SIGNUP'}
+            {isLoginMode ? "LOGIN" : "SIGNUP"}
           </Button>
         </form>
         <Button inverse onClick={switchModeHandler}>
-          SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
+          SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
         </Button>
-
       </Card>
     </>
   );
