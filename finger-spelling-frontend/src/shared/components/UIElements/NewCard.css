@@ -4,7 +4,7 @@
 .grid-header {
   text-align: center; /* Center the heading text */
   font-size: 3rem; /* Adjust the font size to be more reasonable */
-  margin-top: -20%; /* Add space above the heading */
+  margin-top: -18%; /* Add space above the heading */
   margin-bottom: 10px; /* Add more space below the heading to avoid overlap */
   font-weight: bold; /* Make the text bold */
   color: #4D5A6E; /* Adjust the text color */
