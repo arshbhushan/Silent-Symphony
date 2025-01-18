@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import './Brief.css'
 import { Link } from 'react-router-dom';
 import Button from '../../shared/components/FormElements/Button';
 import NewCard from "../../shared/components/UIElements/NewCard.jsx";
-const Brief = () => {
+import { AuthContext } from '../../shared/context/auth-context';
 
+
+const Brief = () => {
+const auth = useContext(AuthContext);
 
   return (
     <>
@@ -65,12 +68,11 @@ const Brief = () => {
           </p>
         </div>
         <div  className="button-container">
-        <Link to="/auth">
-                <Button>Join In!</Button>
-              </Link>
-              <div className="underline-text">
-        <span>Interested? Click here to Register</span>
-      </div>
+        {!auth.isLoggedIn &&(<><Link to="/auth">
+              <Button>Join In!</Button>
+            </Link><div className="underline-text">
+                <span>Interested? Click here to Register</span>
+              </div></>)}
         </div>
 
       </div>
