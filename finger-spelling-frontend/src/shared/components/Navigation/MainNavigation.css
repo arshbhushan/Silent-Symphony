@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 .main-navigation__menu-btn {
-  width: 3rem;
-  height: 3rem;
-  background: transparent;
+  width: 2.5rem;
+  height: 1.3rem;
+  background:black;
   border: none;
-  display: flex;
+  display:flex;
    flex-direction: row;
   justify-content: center;
-  margin-right: 2rem;
+  margin-right: 0.1rem;
   cursor: pointer;
 }
 
 .main-navigation__menu-btn span {
   display: block;
-  width: 3rem;
-  height: 2.5px;
+  width: 1.2rem;
+  height: 1.2rem;
   background: white;
 }
 
@@ -53,4 +53,77 @@
   .main-navigation__header-nav {
     display: block;
   }
+}
+@media (max-width: 468px) {
+  
+  main-navigation__menu-btn {
+    width: 0.5rem;
+    height: 0.3rem;
+    background:black;
+    border: none;
+    display:flex;
+     flex-direction: row;
+    justify-content: center;
+    margin-right: 0.1rem;
+  }  
+  .main-navigation__title a {
+    font-size: 0.8rem;
+    /* text-decoration: none;
+    color: white; */
+  }
+
+  .main-navigation__menu-btn {
+    display: none;
+  }
+
+  .main-navigation__header-nav {
+    display: flex;
+  }
+
+  .main-navigation__menu-btn {
+    width: 2.5rem;
+    height: 1.3rem;
+    background:black;
+    border: none;
+    display:grid;
+     flex-direction: row;
+    justify-content: center;
+    margin-right: 0.1rem;
+    cursor: pointer;
+  }
+  
+  .main-navigation__menu-btn span {
+    display: block;
+    width: 1.3rem;
+    height: 0.2rem;
+    background: white;
+  }
+  .main-navigation__menu-btn-span {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: yellow;
+    margin-top: 1px;
+  }
+  
+  .main-navigation__title {
+    color: black;
+    font-family: 'Margot', sans-serif !important;
+    font-size:0.3rem;
+    /* font-size: xx-small; */
+  }
+  
+  .main-navigation__title a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* .main-navigation__header-nav {
+    margin-right: 1px;
+  }
+  
+  
+  .main-navigation__drawer-nav {
+    height: 100%;
+  } */
 }
