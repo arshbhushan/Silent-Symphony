@@ -83,7 +83,7 @@
   .main-navigation__menu-btn {
     width: 2.5rem;
     height: 1.3rem;
-    background:black;
+    background:#34495e;
     border: none;
     display:grid;
      flex-direction: row;
