@@ -23,21 +23,21 @@ const MainNavigation = props => {
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
         <nav className="main-navigation__drawer-nav">
-          <NavLinks />
+          <NavLinks isSidebar={true} />
         </nav>
       </SideDrawer>
 
       <MainHeader>
         <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
-          <span className='main-navigation__menu-btn-span' />
-          <span className='main-navigation__menu-btn-span'/>
-          <span className='main-navigation__menu-btn-span'/>
+          <span className="main-navigation__menu-btn-span" />
+          <span className="main-navigation__menu-btn-span" />
+          <span className="main-navigation__menu-btn-span" />
         </button>
         <h1 className="main-navigation__title">
           <Link to="/">Silent Symphony</Link>
         </h1>
         <nav className="main-navigation__header-nav">
-          <NavLinks />
+          <NavLinks isSidebar={false} />
         </nav>
       </MainHeader>
     </React.Fragment>
