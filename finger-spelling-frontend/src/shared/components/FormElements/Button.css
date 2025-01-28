@@ -10,6 +10,9 @@
   margin-bottom: 20px;
   text-decoration: none;
   display: inline-block;
+  
+  position: relative; /* Enable z-index */
+  z-index: 1000; /* Ensure it's above all other elements */
 }
 
 .button:focus {
