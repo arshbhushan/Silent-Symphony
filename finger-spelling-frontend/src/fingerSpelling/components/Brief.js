@@ -50,7 +50,7 @@ const auth = useContext(AuthContext);
               <img src="/rectangle4_1.jpg" alt="Image 4" />
             </div>
             <div className="back">
-              <p>AI-Powered Sign Language Tutor: Leverage trained machine learning models to provide personalized sign 
+              <p>AI-Powered Tutor: Leverage trained ML models to provide personalized sign 
                 language instruction, enabling users to learn and practice sign language with the guidance of an AI tutor.</p>
             </div>
           </div>
