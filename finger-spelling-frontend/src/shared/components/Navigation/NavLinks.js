@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/auth-context';
 import './NavLinks.css';
 
-const NavLinks = () => {
+const NavLinks = ({ isSidebar }) => {
   const auth = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -12,7 +12,7 @@ const NavLinks = () => {
   };
 
   return (
-    <ul className="nav-links">
+    <ul className={`nav-links ${isSidebar ? 'sidebar-nav' : 'main-header-nav'}`}>
       <li>
         <NavLink to="/all-users" exact>All Users</NavLink>
       </li>
