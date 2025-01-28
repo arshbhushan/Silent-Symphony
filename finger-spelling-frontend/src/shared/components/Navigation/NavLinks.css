@@ -75,6 +75,13 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.main-header-nav {
+  display: flex;
+}
+
+.sidebar-nav {
+  display: none;
+}
 
 /* Media Queries */
 @media (min-width: 768px) {
@@ -107,5 +114,28 @@
   .dropdown:hover .dropdown-content,
   .dropdown button:hover {
     color: grey;
+  }
+}
+@media (max-width: 468px) {
+  .main-header-nav {
+    display: none; /* Hide links in the main header */
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    list-style: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sidebar-nav li {
+    margin: 0.5rem 0;
+  }
+
+  .sidebar-nav a {
+    text-decoration: none;
+    color: white; /* Adjust color as needed */
   }
 }
