@@ -77,8 +77,8 @@ const auth = useContext(AuthContext);
 
       </div>
     </div>
-      <div>
-        
+
+      <div>    
       <NewCard/>
       </div>
       </>
