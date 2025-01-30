@@ -14,7 +14,7 @@ const NavLinks = ({ isSidebar }) => {
   return (
     <ul className={`nav-links ${isSidebar ? 'sidebar-nav' : 'main-header-nav'}`}>
       <li>
-        <NavLink to="/all-users" exact>All Users</NavLink>
+        <NavLink to="/all-users">All Users</NavLink>
       </li>
 
       {auth.isLoggedIn && (
@@ -24,11 +24,17 @@ const NavLinks = ({ isSidebar }) => {
       )}
 
       <li className="dropdown">
-        <button onClick={handleDropdownClick}>Techniques</button>
+        <button onClick={handleDropdownClick} className="dropdown-toggle">
+          Techniques
+        </button>
         {isDropdownOpen && (
           <div className="dropdown-content">
-            <NavLink to="/finger-spelling">FingerLearning</NavLink>
-            <NavLink to="/gesture-learning">Gesture Recognition</NavLink>
+            <NavLink to="/finger-spelling" onClick={() => setIsDropdownOpen(false)}>
+              Finger Spelling
+            </NavLink>
+            <NavLink to="/gesture-learning" onClick={() => setIsDropdownOpen(false)}>
+              Gesture Recognition
+            </NavLink>
           </div>
         )}
       </li>
@@ -40,11 +46,11 @@ const NavLinks = ({ isSidebar }) => {
       )}
 
       <li>
-        <NavLink to="/" exact>Brief</NavLink>
+        <NavLink to="/">Brief</NavLink>
       </li>
 
       <li>
-        <NavLink to="/" exact>Features</NavLink>
+        <NavLink to="/features">Features</NavLink>
       </li>
     </ul>
   );
