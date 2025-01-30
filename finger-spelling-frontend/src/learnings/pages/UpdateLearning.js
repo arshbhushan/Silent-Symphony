@@ -123,7 +123,7 @@ const UpdateLearning = () => {
             initialValid={true}
         />
         <Button type="submit" disabled={!formState.isValid}>
-            Learning Updated.
+            Update Learning
         </Button>
 
     </form>
