@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import './SideDrawer.css';
 
 const SideDrawer = props => {
+  const nodeRef = useRef(null); // 🔹 Create a ref for the transition
+
   const content = (
     <CSSTransition
       in={props.show}
@@ -12,8 +14,11 @@ const SideDrawer = props => {
       classNames="slide-in-left"
       mountOnEnter
       unmountOnExit
+      nodeRef={nodeRef} // 🔹 Pass nodeRef to CSSTransition
     >
-      <aside className="side-drawer" onClick={props.onClick}>{props.children}</aside>
+      <aside ref={nodeRef} className="side-drawer" onClick={props.onClick}>
+        {props.children}
+      </aside>
     </CSSTransition>
   );
 
