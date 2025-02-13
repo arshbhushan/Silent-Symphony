@@ -114,20 +114,16 @@ export const createLearning = async (req, res, next) => {
 
 
 export const updateLearning = async (req, res, next) => {
-  console.log(req.body); // Add this line to log the request body
-  // console.log(req.body.description);
+  console.log(req.body); // Log the request body
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log(errors);
     return next(new HttpError("Invalid inputs passed, please check your data.", 422));
-
   }
 
-  const { title, description, 
-    //image 
-  } = req.body;
-  const learningId = req.params.lid; // Assuming you are getting the learning ID from URL parameters
+  const { title, description } = req.body;
+  const learningId = req.params.lid; // Get the learning ID from URL parameters
 
   let learning;
 
@@ -137,19 +133,23 @@ export const updateLearning = async (req, res, next) => {
     const error = new HttpError(`Something went wrong, Could not update the Learning. ${err}`, 500);
     return next(error);
   }
-  if(learning.creator.toString() !== req.userData.userId){
-    const error=new HttpError('You are not allowed to edit this learning. ',
-    401
-    );
-    return next(error);
+
+  // Check if the user is an Admin
+  const user = await userModule.findById(req.userData.userId);
+  if (!user.roles || !user.roles.includes('ADMIN')) {
+    // If not Admin, check if the user is the creator
+    if (learning.creator.toString() !== req.userData.userId) {
+      const error = new HttpError('You are not allowed to edit this learning.', 401);
+      return next(error);
+    }
   }
+
   // Update the learning instance
   learning.title = title;
   learning.description = description;
-  //learning.image = image;
 
   try {
-    await learning.save(); // Use the instance method to save changes
+    await learning.save(); // Save changes
   } catch (err) {
     const error = new HttpError('Something went wrong, could not update learning.', 500);
     return next(error);
@@ -157,7 +157,6 @@ export const updateLearning = async (req, res, next) => {
 
   // Send the updated learning as a response
   res.status(200).json({ learning: learning.toObject({ getters: true }) });
-
 };
 
 
@@ -166,7 +165,7 @@ export const deleteLearning = async (req, res, next) => {
   let learning;
 
   try {
-    // Use deleteOne to remove the learning
+    // Find the learning and populate the creator
     learning = await learningsModule.findById(learningId).populate('creator');
   } catch (err) {
     console.error(err);
@@ -175,23 +174,26 @@ export const deleteLearning = async (req, res, next) => {
   }
 
   if (!learning) {
-    const error = new HttpError('Could not find learning for this id. ', 404);
+    const error = new HttpError('Could not find learning for this id.', 404);
     return next(error);
   }
 
-  if(learning.creator.id !== req.userData.userId){
-    const error=new HttpError('You are not allowed to edit this learning. ',
-    401
-    );
-    return next(error);
+  // Check if the user is an Admin
+  const user = await userModule.findById(req.userData.userId);
+  if (!user.roles || !user.roles.includes('ADMIN')) {
+    // If not Admin, check if the user is the creator
+    if (learning.creator.id !== req.userData.userId) {
+      const error = new HttpError('You are not allowed to delete this learning.', 401);
+      return next(error);
+    }
   }
 
-    const imagePath=learning.image;
+  const imagePath = learning.image;
 
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    // Use deleteOne instead of remove
+    // Delete the learning
     await learning.deleteOne({ session: sess });
     learning.creator.learnings.pull(learning);
     await learning.creator.save({ session: sess });
@@ -200,9 +202,12 @@ export const deleteLearning = async (req, res, next) => {
     const error = new HttpError('Something went wrong, could not delete learning.', 500);
     return next(error);
   }
-   fs.unlink(imagePath,err=>{
+
+  // Delete the associated image file
+  fs.unlink(imagePath, err => {
     console.log(err);
-   });
+  });
+
   res.status(200).json({ message: 'Deleted Learning.' });
 };
 
