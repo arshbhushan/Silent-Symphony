@@ -16,7 +16,7 @@ const LearningItem= props => {
     const [showConfirmModal,setShowConfirmModal]=useState(false);
     const openVideoHandler=()=>setShowVideo(true);
     const closeVideoHandler=()=>setShowVideo(false);
-
+    //console.log("Props: ",props)
     const showDeleteWarningHandler=()=>{
         setShowConfirmModal(true);
     };
