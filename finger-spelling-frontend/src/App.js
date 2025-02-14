@@ -11,6 +11,7 @@ import Auth from './user/pages/Auth.js';
 import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
 import { useAuth } from './shared/hooks/auth-hook.js';
+import FingerSpelling from './learnings/components/FingerSpelling.js';
 
 const App = () => {
  const {token,login,logout,userId}=useAuth();
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/learnings/new" element={<NewLearning />} />
         <Route path="/learnings/:learningId" element={<UpdateLearning />} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/finger-spelling" element={<FingerSpelling />} />
       </>
     );
   } else {
