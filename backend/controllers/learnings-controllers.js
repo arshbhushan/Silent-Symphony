@@ -8,6 +8,29 @@ import { userModule } from '../models/user.js';
 import mongoose from 'mongoose';
 import { log } from 'console';
 
+
+export const getAllLearnings = async (req, res, next) => {
+  let learnings;
+  try {
+    // Fetch all learnings from the database
+    learnings = await learningsModule.find({});
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong, Could not fetch all learnings. ${err}`,
+      500
+    );
+    return next(error);
+  }
+
+  if (!learnings || learnings.length === 0) {
+    const error = new HttpError('No learnings found.', 404);
+    return next(error);
+  }
+
+  // Return the learnings as a response
+  res.json({ learnings: learnings.map(learning => learning.toObject({ getters: true })) });
+};
+
 export const getLearningsById = async (req, res, next) => {
   const learningId = req.params.learningId;
   let learnings;
