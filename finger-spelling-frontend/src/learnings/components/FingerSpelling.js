@@ -33,7 +33,7 @@ const FingerSpelling = () => {
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
       <div className="finger-spelling">
-        <h1>Finger Spelling Learnings</h1>
+        {/* <h1>Finger Spelling Learnings</h1> */}
         {!isLoading && loadedLearnings && (
           <LearningList items={loadedLearnings} />
         )}
