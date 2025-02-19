@@ -1,6 +1,6 @@
 import { mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
-import { learningsModule } from '../models/learnings.js';
+import { learningsModule } from './models/learnings.js';
 // Connect to your MongoDB database
 const db = mongoose.connect(mongoDBURL);
 
