@@ -1,18 +1,14 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import Brief from '../../fingerSpelling/components/Brief.js';
-// Your component code here
 
-// Inside your component's JSX
 //import BannerBackground from './image.png';
 import Button from '../../shared/components/FormElements/Button.js'
-// import HorizontalScroller from '../../fingerSpelling/components/HorizontalScroller.js';
-// import About from '../../fingerSpelling/components/AboutUs.js';
 import './Home.css'
 import { AuthContext } from '../../shared/context/auth-context.js';
 
 const Home = () => {
-  const auth = useContext(AuthContext); // Access AuthContext
+  const auth = useContext(AuthContext); 
 
   return (
     <>
@@ -29,7 +25,7 @@ const Home = () => {
             </p>
             <br />
             <br />
-            {!auth.isLoggedIn && ( // Conditionally render buttons based on login status
+            {!auth.isLoggedIn && (
               <div className='buttons'>
                 <Link to="/auth">
                   <Button>LOGIN</Button>
