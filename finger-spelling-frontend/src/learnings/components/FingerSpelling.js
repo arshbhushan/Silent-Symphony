@@ -5,7 +5,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import LearningList from '../../learnings/components/LearningList';
-//import './FingerSpelling.css'; // Optional: Add styles for this page
+import './FingerSpelling.css'; // Optional: Add styles for this page
 
 const FingerSpelling = () => {
   //const auth = useContext(AuthContext);
@@ -33,7 +33,7 @@ const FingerSpelling = () => {
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && <LoadingSpinner asOverlay />}
       <div className="finger-spelling">
-        {/* <h1>Finger Spelling Learnings</h1> */}
+        <h1>Finger Spelling Learnings</h1>
         {!isLoading && loadedLearnings && (
           <LearningList items={loadedLearnings} />
         )}
