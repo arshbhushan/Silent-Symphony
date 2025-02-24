@@ -1,158 +1,311 @@
 [
-    {
-      "title": "A",
-      "description": "Hand sign for letter A in Indian Sign Language.",
-      "image": "uploads/images/Images/A/A.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315f8"
     },
-    {
-      "title": "B",
-      "description": "Hand sign for letter B in Indian Sign Language.",
-      "image": "uploads/images/Images/B/B.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "C",
-      "description": "Hand sign for letter C in Indian Sign Language.",
-      "image": "uploads/images/Images/C/C.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "D",
-      "description": "Hand sign for letter D in Indian Sign Language.",
-      "image": "uploads/images/Images/D/D.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "E",
-      "description": "Hand sign for letter E in Indian Sign Language.",
-      "image": "uploads/images/Images/E/E.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "F",
-      "description": "Hand sign for letter F in Indian Sign Language.",
-      "image": "uploads/images/Images/F/F.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "G",
-      "description": "Hand sign for letter G in Indian Sign Language.",
-      "image": "uploads/images/Images/G/G.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "H",
-      "description": "Hand sign for letter H in Indian Sign Language.",
-      "image": "uploads/images/Images/H/H.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "I",
-      "description": "Hand sign for letter I in Indian Sign Language.",
-      "image": "uploads/images/Images/I/I.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "J",
-      "description": "Hand sign for letter J in Indian Sign Language.",
-      "image": "uploads/images/Images/J/J.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "K",
-      "description": "Hand sign for letter K in Indian Sign Language.",
-      "image": "uploads/images/Images/K/K.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "L",
-      "description": "Hand sign for letter L in Indian Sign Language.",
-      "image": "uploads/images/Images/L/L.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "M",
-      "description": "Hand sign for letter M in Indian Sign Language.",
-      "image": "uploads/images/Images/M/M.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "N",
-      "description": "Hand sign for letter N in Indian Sign Language.",
-      "image": "uploads/images/Images/N/N.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "O",
-      "description": "Hand sign for letter O in Indian Sign Language.",
-      "image": "uploads/images/Images/O/O.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "P",
-      "description": "Hand sign for letter P in Indian Sign Language.",
-      "image": "uploads/images/Images/P/P.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "Q",
-      "description": "Hand sign for letter Q in Indian Sign Language.",
-      "image": "uploads/images/Images/Q/Q.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "R",
-      "description": "Hand sign for letter R in Indian Sign Language.",
-      "image": "uploads/images/Images/R/R.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "S",
-      "description": "Hand sign for letter S in Indian Sign Language.",
-      "image": "uploads/images/Images/S/S.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "T",
-      "description": "Hand sign for letter T in Indian Sign Language.",
-      "image": "uploads/images/Images/T/T.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "U",
-      "description": "Hand sign for letter U in Indian Sign Language.",
-      "image": "uploads/images/Images/U/U.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "V",
-      "description": "Hand sign for letter V in Indian Sign Language.",
-      "image": "uploads/images/Images/V/V.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "W",
-      "description": "Hand sign for letter W in Indian Sign Language.",
-      "image": "uploads/images/Images/W/W.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "X",
-      "description": "Hand sign for letter X in Indian Sign Language.",
-      "image": "uploads/images/Images/X/X.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "Y",
-      "description": "Hand sign for letter Y in Indian Sign Language.",
-      "image": "uploads/images/Images/Y/Y.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
-    },
-    {
-      "title": "Z",
-      "description": "Hand sign for letter Z in Indian Sign Language.",
-      "image": "uploads/images/Images/Z/Z.jpg",
-      "creator": "65db1b021bbef1426079ea1f"
+    "title": "A",
+    "description": "Hand sign for letter A in Indian Sign Language.",
+    "image": "uploads/images/Images/A/A.jpg",
+    "videoUrl": "https://www.youtube.com/embed/u_ZTEXA_WX4",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
     }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315f9"
+    },
+    "title": "B",
+    "description": "Hand sign for letter B in Indian Sign Language.",
+    "image": "uploads/images/Images/B/B.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=ieWVWx9ykb8",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315fa"
+    },
+    "title": "C",
+    "description": "Hand sign for letter C in Indian Sign Language.",
+    "image": "uploads/images/Images/C/C.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=zmZ8E1O34pQ",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315fb"
+    },
+    "title": "D",
+    "description": "Hand sign for letter D in Indian Sign Language.",
+    "image": "uploads/images/Images/D/D.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=cMzyA5kiFI4",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315fc"
+    },
+    "title": "E",
+    "description": "Hand sign for letter E in Indian Sign Language.",
+    "image": "uploads/images/Images/E/E.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=1wKAw-aCP44",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315fd"
+    },
+    "title": "F",
+    "description": "Hand sign for letter F in Indian Sign Language.",
+    "image": "uploads/images/Images/F/F.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=1wKAw-aCP44",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315fe"
+    },
+    "title": "G",
+    "description": "Hand sign for letter G in Indian Sign Language.",
+    "image": "uploads/images/Images/G/G.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=Ez8rwyZvclA",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf315ff"
+    },
+    "title": "H",
+    "description": "Hand sign for letter H in Indian Sign Language.",
+    "image": "uploads/images/Images/H/H.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=T2DVNMM5hmc",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31600"
+    },
+    "title": "I",
+    "description": "Hand sign for letter I in Indian Sign Language.",
+    "image": "uploads/images/Images/I/I.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=cGZRNgzl7Ks",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31601"
+    },
+    "title": "J",
+    "description": "Hand sign for letter J in Indian Sign Language.",
+    "image": "uploads/images/Images/J/J.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=CKoTMog47Eo",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31602"
+    },
+    "title": "K",
+    "description": "Hand sign for letter K in Indian Sign Language.",
+    "image": "uploads/images/Images/K/K.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=0QphTAjEJaI",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31603"
+    },
+    "title": "L",
+    "description": "Hand sign for letter L in Indian Sign Language.",
+    "image": "uploads/images/Images/L/L.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=uh4T_jmc4Sw",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31604"
+    },
+    "title": "M",
+    "description": "Hand sign for letter M in Indian Sign Language.",
+    "image": "uploads/images/Images/M/M.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=c3vj8iQpabg",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31605"
+    },
+    "title": "N",
+    "description": "Hand sign for letter N in Indian Sign Language.",
+    "image": "uploads/images/Images/N/N.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=thLt0HRBzKI",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31606"
+    },
+    "title": "O",
+    "description": "Hand sign for letter O in Indian Sign Language.",
+    "image": "uploads/images/Images/O/O.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=YuHPc6obYlQ",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31607"
+    },
+    "title": "P",
+    "description": "Hand sign for letter P in Indian Sign Language.",
+    "image": "uploads/images/Images/P/P.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=XOIHxWPt_UE",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31608"
+    },
+    "title": "Q",
+    "description": "Hand sign for letter Q in Indian Sign Language.",
+    "image": "uploads/images/Images/Q/Q.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=7wMVH7iJUNI",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31609"
+    },
+    "title": "R",
+    "description": "Hand sign for letter R in Indian Sign Language.",
+    "image": "uploads/images/Images/R/R.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=0Lk7_fKVCdk",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160a"
+    },
+    "title": "S",
+    "description": "Hand sign for letter S in Indian Sign Language.",
+    "image": "uploads/images/Images/S/S.jpg",
+    "videoUrl": "https://www.youtube.com/embed/Q9hT--xDsVs",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160b"
+    },
+    "title": "T",
+    "description": "Hand sign for letter T in Indian Sign Language.",
+    "image": "uploads/images/Images/T/T.jpg",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160c"
+    },
+    "title": "U",
+    "description": "Hand sign for letter U in Indian Sign Language.",
+    "image": "uploads/images/Images/U/U.jpg",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160d"
+    },
+    "title": "V",
+    "description": "Hand sign for letter V in Indian Sign Language.",
+    "image": "uploads/images/Images/V/V.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=XaHVxkbbO40",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160e"
+    },
+    "title": "W",
+    "description": "Hand sign for letter W in Indian Sign Language.",
+    "image": "uploads/images/Images/W/W.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=aKLUMUQim-I",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf3160f"
+    },
+    "title": "X",
+    "description": "Hand sign for letter X in Indian Sign Language.",
+    "image": "uploads/images/Images/X/X.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=XtcoBPj_lhI",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31610"
+    },
+    "title": "Y",
+    "description": "Hand sign for letter Y in Indian Sign Language.",
+    "image": "uploads/images/Images/Y/Y.jpg",
+    "videoUrl": "https://www.youtube.com/embed?v=gf76kRO7Jb4",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67b3625ab3702c1a8bf31611"
+    },
+    "title": "Z",
+    "description": "Hand sign for letter Z in Indian Sign Language.",
+    "image": "uploads/images/Images/Z/Z.jpg",
+    "creator": {
+      "$oid": "65db1b021bbef1426079ea1f"
+    }
+  }
 ]
