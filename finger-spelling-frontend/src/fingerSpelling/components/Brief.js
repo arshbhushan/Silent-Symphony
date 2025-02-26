@@ -11,6 +11,7 @@ const auth = useContext(AuthContext);
 
   return (
     <>
+    <div className="brief-containerr" id="brief">
     <div className="brief-container">
       <div className="brief-left-side">
         <div className="rectangle-container">
@@ -77,8 +78,8 @@ const auth = useContext(AuthContext);
 
       </div>
     </div>
-
-      <div>    
+    </div>      
+      <div id="features">    
       <NewCard/>
       </div>
       </>
