@@ -1,3 +1,7 @@
+.brief-containerr {
+  height: fit-content;
+  
+}
 .brief-container {
   display: flex;
   justify-content: space-between;
@@ -5,10 +9,10 @@
   padding: 30px;
   background-color: #eaedff;
   /* Adjust background color as needed */
-  margin-bottom: 10%;
+  /* margin-bottom: 10%;
   margin-right: 10%;
-  margin-top: 10%;
-  height: 400px;
+  margin-top: 10%; */
+  height: fit-content;
   text-overflow: hidden;
   
 }
@@ -195,6 +199,7 @@
     justify-content: space-between; /* Distribute space evenly between rectangles */
     flex-wrap: wrap; /* Allow wrapping to the next line if needed */
     margin: 20px;
+    height: fit-content;
     align-items: flex-start;
     margin-top: 15rem;
   }
