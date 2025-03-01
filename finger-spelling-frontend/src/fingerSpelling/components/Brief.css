@@ -1,20 +1,15 @@
 .brief-containerr {
   height: fit-content;
-  
 }
+
 .brief-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px;
   background-color: #eaedff;
-  /* Adjust background color as needed */
-  /* margin-bottom: 10%;
-  margin-right: 10%;
-  margin-top: 10%; */
   height: fit-content;
   text-overflow: hidden;
-  
 }
 
 .brief-left-side {
@@ -41,7 +36,7 @@
   transform: rotateY(180deg);
 }
 
-.front,.back {
+.front, .back {
   font-size: medium;
   font-weight: 500;
   font-family: 'Margot', sans-serif !important;
@@ -78,7 +73,6 @@
   font-family: 'Margot', sans-serif !important;
 }
 
-
 .rectangle1 {
   width: 330px;
   height: 330px;
@@ -91,7 +85,6 @@
   height: 203px;
   border-radius: 8px;
   background-color: #191B24;
-
 }
 
 .rectangle3 {
@@ -143,9 +136,7 @@
 
 .custom-heading {
   font-size: 84px;
-  /* Adjust font size as needed */
   font-weight: bolder;
-  /* Adjust font weight as needed */
   font-family: 'Margot', sans-serif !important;
 }
 
@@ -156,25 +147,21 @@
   margin-top: 25px;
   margin-bottom: 15px;
   font-family: 'Margot', sans-serif !important;
-
 }
 
 .brief-right-side {
   flex: 2;
   margin-bottom: 500px;
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
 
 .brief-right-side h1 {
-  font-size: 2rem; /* Adjust font size as needed */
-  color: #333333; /* Adjust text color as needed */
+  font-size: 2rem;
+  color: #333333;
   font-family: 'Margot', sans-serif !important;
-  white-space: nowrap; /* Prevent line breaks */
-  /* text-overflow: ellipsis;  */
-  /* Add ellipsis (...) for overflowing text */
-  max-width: 100%; /* Ensure the text container doesn't exceed the width of its parent */
+  white-space: nowrap;
+  max-width: 100%;
 }
-
 
 .button-container {
   margin-top: 40px;
@@ -183,7 +170,6 @@
 
 .underline-text {
   margin-left: 120px;
-  /* Adjust margin as needed */
   margin-top: -50px;
   white-space: nowrap;
 }
@@ -196,62 +182,30 @@
   .rectangle-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Distribute space evenly between rectangles */
-    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin: 20px;
     height: fit-content;
     align-items: flex-start;
-    margin-top: 15rem;
+    /* margin-top: 15rem; */
   }
 
   .rectangle {
-    width: 130px; /* Set a consistent width for all rectangles */
-    height: 130px; /* Set a consistent height for all rectangles */
-    margin-bottom: 20px; /* Add space between rows if wrapping occurs */
-    position: relative;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-  }
-
-  .rectangle:hover {
-    transform: rotateY(180deg);
-  }
-
-  .front,
-  .back {
-    
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-  }
-
-  .front {
-    z-index: 2;
-  }
-
-  .back {
-    transform: rotateY(180deg);
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
   }
 
   .rectangle img {
     width: 120%;
     height: 150%;
-    border-radius: 8px;
   }
 
   .rectangle p {
     font-size: 9px;
-    padding: 10px;
-    color: #fff;
   }
 
-  .rectangle1,
-  .rectangle2,
-  .rectangle3,
-  .rectangle4 {
+  .rectangle1, .rectangle2, .rectangle3, .rectangle4 {
     border-radius: 8px;
   }
 
@@ -259,34 +213,12 @@
     background-color: #B7C9F2;
   }
 
-  .rectangle2,
-  .rectangle3 {
+  .rectangle2, .rectangle3 {
     background-color: #191B24;
   }
 
   .rectangle4 {
     background-color: #B7C9F2;
-  }
-
-
-  .circle {
-    width: 10px;
-    height: 10px;
-    background-color: #191B24;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-
-  .circle-co {
-    width: 10px;
-    height: 10px;
-    background-color: #B7C9F2;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    left: 5px;
   }
 
   .underline-text {
@@ -296,406 +228,95 @@
 
   .brief-heading {
     margin-top: -105px;
-    height: 60px;
-    width: 280px;
-    margin-bottom: 5px;
   }
-
-  /* make changes here  */
 
   .custom-heading {
     font-size: 24px;
-    /* Adjust font size as needed */
-    font-weight: bolder;
-    /* Adjust font weight as needed */
     margin-bottom: -10px;
   }
 
   .brief-content {
     font-size: 14px;
     line-height: 24px;
-    color: #4D5A6E;
-    margin-top: 25px;
-    margin-bottom: 20px;
-
   }
 
   .brief-right-side {
-    flex: 2;
-    margin-bottom: 400px;
+    margin-bottom: 10px;
     margin-left: 10px;
   }
 
   .brief-right-side h1 {
     font-size: 2.5rem;
-    /* Adjust font size as needed */
-    color: #333333;
-    /* Adjust text color as needed */
-    
-    /* Prevent line break */
-    /* overflow: hidden; */
-    /* Hide overflowing text if necessary */
-  
-    /* 
-    }
-    .button-container{
-      margin-top: 20px;
-      margin-left: 0px
-    }
-    .underline-text {
-      margin-left: 100px; /* Adjust margin as needed */
-      .underline-text{
-        margin-left:100px;
-    margin-top: -20px;
-    margin-left: 50px;
-    color: #4D5A6E;
   }
+
+  .button-container {
+    margin-top: 20px;
+  }
+
   .underline-text {
-    margin-left: 10px;
-    /* Adjust margin as needed */
-    margin-top: -50px;
-    white-space: normal;
-  }
-  .underline-text span {
-    text-decoration: underline;
-  }
-  }
-  @media (max-width: 768px) {
-    .brief-container {
-      flex-direction: column;
-      align-items: flex-start;
-      height: 105vh;
-    }
-  
-    .brief-left-side, .brief-right-side {
-      margin-left: 0;
-      margin-right: 0;
-      margin-top:13rem ;
-      min-width: 110%;
-    }
-  
-    .rectangle {
-      width: 60px;
-      height: 30px;
-    }
-  
-    .rectangle1, .rectangle2 {
-      width: 130px;
-      height: 100px;
-      margin: 30px 0;
-      
-    }
-  
-    .rectangle3, .rectangle4 {
-      width: 130px;
-      height: 100px;
-      margin: 30px 0;
-    }
-  
-    .brief-right-side {
-      margin-top: 20px;
-    }
-  
-    .custom-heading {
-      font-size: 24px;
-      margin-bottom: -20px;
-    }
-  
-    .brief-content {
-      font-size: 14px;
-      line-height: 24px;
-      margin-top: -30px;
-
-    }
-  
-    .brief-right-side h1 {
-      font-size: 1.5rem;
-      /* Adjust font size as needed */
-      color: #333333;
-      /* Adjust text color as needed */
-      margin-top: 100px;
-      margin-left: 0px;
-      color: #4D5A6E;
-
-    }
-      .button-container{
-        margin-top: 20px;
-        margin-left: 0px
-      }
-      .underline-text {
-        margin-left: 50px; /* Adjust margin as needed */
-      
-    }
-  
-    .button-container {
-      margin-top: 20px;
-      margin-left: 0;
-    }
-  
-    .underline-text {
-      margin-left: 0;
-      text-align: left;
-    }
-    .underline-text {
-      margin-left: 120px;
-      /* Adjust margin as needed */
-      margin-top: -50px;
-      white-space: normal;
-    }
+    margin-left: 50px;
   }
 }
 
-
 @media (max-width: 468px) {
-  .rectangle-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Distribute space evenly between rectangles */
-    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
-    margin: 20px;
+  .brief-containerr {
+    height: fit-content;
+  }
+  
+  .brief-container {
+    flex-direction: column;
     align-items: flex-start;
-    margin-top: 15rem;
+    height: fit-content;
+  }
+
+  .brief-left-side, .brief-right-side {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    min-width: 0;
   }
 
   .rectangle {
-    width: 130px; /* Set a consistent width for all rectangles */
-    height: 130px; /* Set a consistent height for all rectangles */
-    margin-bottom: 20px; /* Add space between rows if wrapping occurs */
-    position: relative;
-    transition: transform 1s;
-    transform-style: preserve-3d;
+    width: 60px;
+    height: 30px;
   }
 
-  .rectangle:hover {
-    transform: rotateY(180deg);
+  .rectangle1, .rectangle2, .rectangle3, .rectangle4 {
+    width: 130px;
+    height: 100px;
+    margin: 30px 0;
   }
 
-  .front,
-  .back {
-    
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
+  .brief-right-side {
+    margin-top: 20px;
   }
-
-  .front {
-    z-index: 2;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-  }
-
-  .rectangle img {
-    width: 120%;
-    height: 150%;
-    border-radius: 8px;
-  }
-
-  .rectangle p {
-    font-size: 8px;
-    padding: 1px;
-    color: #fff;
-    position: relative;
-    text-align:center;
-  }
-
-  .rectangle1,
-  .rectangle2,
-  .rectangle3,
-  .rectangle4 {
-    border-radius: 8px;
-  }
-
-  .rectangle1 {
-    background-color: #B7C9F2;
-  }
-
-  .rectangle2,
-  .rectangle3 {
-    background-color: #191B24;
-  }
-
-  .rectangle4 {
-    background-color: #B7C9F2;
-  }
-
-
-  .circle {
-    width: 10px;
-    height: 10px;
-    background-color: #191B24;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-
-  .circle-co {
-    width: 10px;
-    height: 10px;
-    background-color: #B7C9F2;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-
-  .underline-text {
-    margin-left: 120px;
-    margin-top: -20px;
-  }
-
-  .brief-heading {
-    margin-top: -105px;
-    height: 60px;
-    width: 280px;
-    margin-bottom: 5px;
-  }
-
-  /* make changes here  */
 
   .custom-heading {
     font-size: 24px;
-    /* Adjust font size as needed */
-    font-weight: bolder;
-    /* Adjust font weight as needed */
-    margin-bottom: -10px;
+    margin-bottom: -20px;
   }
 
   .brief-content {
     font-size: 14px;
     line-height: 24px;
-    color: #4D5A6E;
-    margin-top: 25px;
-    margin-bottom: 20px;
-
-  }
-
-  .brief-right-side {
-    flex: 2;
-    margin-bottom: 400px;
-    margin-left: 10px;
+    margin-top: -30px;
   }
 
   .brief-right-side h1 {
-    font-size: 2.5rem;
-    /* Adjust font size as needed */
-    color: #333333;
-    /* Adjust text color as needed */
-    
-    /* Prevent line break */
-    /* overflow: hidden; */
-    /* Hide overflowing text if necessary */
-  
-    /* 
-    }
-    .button-container{
-      margin-top: 20px;
-      margin-left: 0px
-    }
-    .underline-text {
-      margin-left: 100px; /* Adjust margin as needed */
-      .underline-text{
-        margin-left:100px;
-    margin-top: -20px;
-    margin-left: 50px;
+    font-size: 1.5rem;
+    margin-top: 100px;
+    margin-left: 0px;
     color: #4D5A6E;
   }
+
+  .button-container {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
   .underline-text {
-    margin-left: 10px;
-    /* Adjust margin as needed */
-    margin-top: -50px;
-    white-space: normal;
-  }
-  .underline-text span {
-    text-decoration: underline;
-  }
-  }
-  @media (max-width: 468px) {
-    .brief-container {
-      flex-direction: column;
-      align-items: flex-start;
-      height: 105vh;
-    }
-  
-    .brief-left-side, .brief-right-side {
-      margin-left: 0;
-      margin-right: 0;
-      margin-top:13rem ;
-      min-width: 110%;
-    }
-  
-    .rectangle {
-      width: 60px;
-      height: 30px;
-    }
-  
-    .rectangle1, .rectangle2 {
-      width: 130px;
-      height: 100px;
-      margin: 30px 0;
-      
-    }
-  
-    .rectangle3, .rectangle4 {
-      width: 130px;
-      height: 100px;
-      margin: 30px 0;
-    }
-  
-    .brief-right-side {
-      margin-top: 20px;
-    }
-  
-    .custom-heading {
-      font-size: 24px;
-      margin-bottom: -20px;
-    }
-  
-    .brief-content {
-      font-size: 14px;
-      line-height: 24px;
-      margin-top: -30px;
-
-    }
-  
-    .brief-right-side h1 {
-      font-size: 1.5rem;
-      /* Adjust font size as needed */
-      color: #333333;
-      /* Adjust text color as needed */
-      margin-top: 100px;
-      margin-left: 0px;
-      color: #4D5A6E;
-
-    }
-      .button-container{
-        margin-top: 20px;
-        margin-left: 0px
-      }
-      .underline-text {
-        margin-left: 50px; /* Adjust margin as needed */
-      
-    }
-  
-    .button-container {
-      margin-top: 20px;
-      margin-left: 0;
-    }
-  
-    .underline-text {
-      margin-left: 0;
-      text-align: left;
-    }
-    .underline-text {
-      margin-left: 120px;
-      /* Adjust margin as needed */
-      margin-top: -50px;
-      white-space: normal;
-    }
+    margin-left: 0;
+    text-align: left;
+    margin-top: 1px;
   }
 }
