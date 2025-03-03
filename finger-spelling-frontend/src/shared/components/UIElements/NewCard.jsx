@@ -41,7 +41,7 @@ function NewCard() {
               <Card.Title><b>AI-Powered Translation</b></Card.Title>
               <br />
               <Card.Text>
-                Experience our cutting-edge AI technology that translates sign language in real-time,
+                AI based model that translates Indian sign language in real-time,
                 making communication seamless and accessible for everyone.
               </Card.Text>
               <Button className="custom-button">Go somewhere</Button>
