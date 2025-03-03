@@ -40,13 +40,13 @@ const NavLinks = ({ isSidebar }) => {
       )}
 
       <li className="dropdown" ref={dropdownRef}>
-        <button
+        <NavLink
           onClick={handleDropdownClick}
           className="dropdown-toggle"
           aria-expanded={isDropdownOpen}
         >
           Techniques
-        </button>
+        </NavLink>
         {isDropdownOpen && (
           <div className={`dropdown-content ${isDropdownOpen ? 'open' : ''}`}>
             <NavLink
@@ -64,12 +64,6 @@ const NavLinks = ({ isSidebar }) => {
           </div>
         )}
       </li>
-
-      {auth.isLoggedIn && (
-        <li>
-          <button onClick={auth.logout}>Logout</button>
-        </li>
-      )}
 
       {/* Replace NavLink with Link from react-scroll for smooth scrolling */}
       <li>
@@ -95,6 +89,12 @@ const NavLinks = ({ isSidebar }) => {
           Features
         </Link>
       </li>
+
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink onClick={auth.logout}>Logout</NavLink>
+        </li>
+      )}
     </ul>
   );
 };
