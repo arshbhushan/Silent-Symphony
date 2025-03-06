@@ -12,6 +12,7 @@ import { AuthContext } from './shared/context/auth-context.js';
 import UserLearnings from './learnings/pages/userLearnings';
 import { useAuth } from './shared/hooks/auth-hook.js';
 import FingerSpelling from './learnings/components/FingerSpelling.js';
+import GestureRecognition from './learnings/components/GestureRecognition.js'
 
 const App = () => {
  const {token,login,logout,userId}=useAuth();
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/learnings/:learningId" element={<UpdateLearning />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/finger-spelling" element={<FingerSpelling />} />
+        <Route path="/gesture-learning" element={<GestureRecognition/>} />
       </>
     );
   } else {
