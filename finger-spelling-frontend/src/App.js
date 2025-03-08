@@ -41,6 +41,8 @@ const App = () => {
         {/* <Route path="/" element={<>{<Home />}{<Users/>}</>} /> */}
         <Route path="/:userId/learnings" element={<UserLearnings />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/finger-spelling" element={<FingerSpelling />} />
+        <Route path="/gesture-learning" element={<GestureRecognition/>} />
       </>
     );
   }
