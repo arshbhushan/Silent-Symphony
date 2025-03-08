@@ -65,7 +65,7 @@ const Brief = () => {
             <div className="button-container">
               {!auth.isLoggedIn && (
                 <>
-                  <Link to="/auth">
+                  <Link to="/auth?mode=signup">
                     <Button>Join In!</Button>
                   </Link>
                   <div className="underline-text">
