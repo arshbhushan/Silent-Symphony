@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useSearchParams } from "react-router-dom"; // Import useSearchParams
 import Card from "../../shared/components/UIElements/Card";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
@@ -14,8 +15,19 @@ import "./Auth.css";
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
-  const [showPopup, setShowPopup] = useState(false); // Popup visibility state
+  const [showPopup, setShowPopup] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  // Use useSearchParams to get query parameters
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode"); // Get the 'mode' query parameter
+
+  // Set isLoginMode based on the 'mode' query parameter
+  useEffect(() => {
+    if (mode === "signup") {
+      setIsLoginMode(false);
+    }
+  }, [mode]);
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -114,7 +126,7 @@ const Auth = () => {
       )}
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
-        <h2>Login Required</h2>
+        <h2>{isLoginMode ? "Login Required" : "Signup"}</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
