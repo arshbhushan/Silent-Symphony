@@ -29,7 +29,7 @@ const Home = () => {
                 <Link to="/auth">
                   <Button>LOGIN</Button>
                 </Link>
-                <Link to="/auth">
+                <Link to="/auth?mode=signup">
                   <Button>SIGNUP</Button>
                 </Link>
               </div>
