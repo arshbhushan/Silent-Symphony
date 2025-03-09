@@ -8,7 +8,6 @@ const userSchema = mongoose.Schema({
     learnings: [{type: mongoose.Types.ObjectId,required: true, ref:'Learnings'}],
     roles: { type: [String], default: ['USER'] }
     });
-    userSchema.plugin(uniqueValidator);  //This will add a unique index to the email field in MongoDB
-                                        //and throw an error if we try to insert a document with duplicate email address server side
+    userSchema.plugin(uniqueValidator);
 
 export const userModule = mongoose.model("User",userSchema) ;
