@@ -1,72 +1,78 @@
 /* MainFooter.css */
-.footer-container {
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%; /* Ensure the body takes full height */
+  }
+  
+  #root { /* Assuming your app is wrapped in a div with id="root" */
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Ensure the root container takes at least the full viewport height */
+  }
+  
+  .footer-container {
 	background-color: #34495e;
 	color: #fff;
 	padding: 20px 0;
-    margin-top: 0; /* Ensure no margin is causing extra space */
-}
-
-.footer-content {
+	margin-top: auto; /* Push the footer to the bottom */
+  }
+  
+  .footer-content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
 	padding: 20px;
-}
-
-.footer-content h1 {
+  }
+  
+  .footer-content h1 {
 	font-size: 24px;
 	margin-bottom: 20px;
-}
-
-.footer-links {
+  }
+  
+  .footer-links {
 	margin-bottom: 20px;
-}
-
-.footer-links a {
+  }
+  
+  .footer-links a {
 	color: #fff;
 	text-decoration: none;
 	margin: 0 10px;
 	font-size: 16px;
 	transition: color 0.3s;
-}
-
-.footer-links a:hover {
+  }
+  
+  .footer-links a:hover {
 	color: #ff0055;
-}
-
-.footer-social {
+  }
+  
+  .footer-social {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 20px;
-}
-
-.social-link {
+  }
+  
+  .social-link {
 	color: #fff;
 	text-decoration: none;
 	margin: 0 10px;
 	font-size: 16px;
 	transition: color 0.3s;
-}
-
-.social-link:hover {
+  }
+  
+  .social-link:hover {
 	color: #ff0055;
-}
-
-.footer-bottom {
+  }
+  
+  .footer-bottom {
 	background-color: white;
 	padding: 10px;
 	text-align: center;
-}
-
-.footer-bottom p {
+  }
+  
+  .footer-bottom p {
 	margin: 0;
 	font-size: 14px;
 	color: black;
-}
-
-/* Additional CSS */
-html, body {
-  margin: 0;
-  padding: 0;
-}
+  }
