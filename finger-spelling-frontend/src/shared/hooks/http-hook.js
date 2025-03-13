@@ -31,7 +31,7 @@ export const useHttpClient = () => {
             }
         } catch (err) {
             if (err.name === 'AbortError') {
-                console.log('Request aborted by user');
+                //console.log('Request aborted by user');
                 // Handle aborted request (e.g., return a specific value)
             } else {
                 setError(err.message);

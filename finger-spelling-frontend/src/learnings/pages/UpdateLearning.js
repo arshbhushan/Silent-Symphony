@@ -36,7 +36,7 @@ const UpdateLearning = () => {
             try {
                 const responseData = await sendRequest(`http://localhost:5555/api/learnings/${LearningId}`);
                 setLoadedLearning(responseData.learnings);
-                console.log("Response Data:", responseData);
+                //console.log("Response Data:", responseData);
 
                 setFormData({
                     title: {

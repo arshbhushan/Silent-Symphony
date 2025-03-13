@@ -13,7 +13,6 @@ const LearningItem = props => {
     const auth = useContext(AuthContext);
     const [showVideo, setShowVideo] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
-    //console.log("Props:", props);
     
     const openVideoHandler = () => setShowVideo(true);
     const closeVideoHandler = () => setShowVideo(false);
