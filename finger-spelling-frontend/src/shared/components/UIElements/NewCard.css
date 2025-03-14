@@ -37,7 +37,7 @@
 
 .card-body {
   height: auto; /* Ensure the card body adjusts its height */
-  
+  text-align: center;
 }
 
 .custom-button {
