@@ -19,7 +19,7 @@ const Home = () => {
             </h2>
             <br />
             <p className='sub-text'>
-              Silent Symphony: Your Sign Language Companion. Learn to communicate effortlessly with the deaf and mute community.
+              <b>Silent Symphony:</b> Your Sign Language Companion. Learn to communicate effortlessly with the deaf and mute community.
               Dive into our intuitive lessons and empower yourself to connect with others through the universal language of signs.
             </p>
             <br />
