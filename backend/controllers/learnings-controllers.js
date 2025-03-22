@@ -114,7 +114,7 @@ export const createLearning = async (req, res, next) => {
 
   // Check if the user has the ADMIN role
   if (!user.roles || !user.roles.includes('ADMIN')) {
-    const error = new HttpError('You are not authorized to create new learnings.', 403);
+    const error = new HttpError('You are not authorized to create new learnings. Please contact an admin.', 403);
     return next(error);
   }
 
